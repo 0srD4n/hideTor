@@ -19,7 +19,6 @@ $l['bottomlinks_forumteam'] = "Forum Team";
 $l['bottomlinks_contactus'] = "Contact Us";
 $l['bottomlinks_returntop'] = "Return to Top";
 $l['bottomlinks_syndication'] = "RSS Syndication";
-$l['bottomlinks_litemode'] = "Lite (Archive) Mode";
 $l['bottomlinks_markread'] = "Mark all forums read";
 
 $l['welcome_usercp'] = "User CP";

@@ -1,14 +1,5 @@
 <?php
 /**
- * MyBB 1.8
- * Copyright 2014 MyBB Group, All Rights Reserved
- *
- * Website: http://www.mybb.com
- * License: http://www.mybb.com/about/license
- *
- */
-
-/**
 * Build a list of forum bits.
 *
 * @param int $pid The parent forum to fetch the child forums for (0 assumes all)
