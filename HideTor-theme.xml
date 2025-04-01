@@ -1,24 +1,426 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <theme name="HideTor" version="1838">
 	<properties>
-		<templateset><![CDATA[2]]></templateset>
+		<templateset><![CDATA[105]]></templateset>
 		<editortheme><![CDATA[default.css]]></editortheme>
-		<imgdir><![CDATA[images/tek]]></imgdir>
-		<logo><![CDATA[images//tek/logo.png]]></logo>
 		<tablespace><![CDATA[0]]></tablespace>
 		<borderwidth><![CDATA[0]]></borderwidth>
 		<color><![CDATA[]]></color>
-		<disporder><![CDATA[a:12:{s:10:"global.css";i:1;s:8:"css3.css";i:2;s:10:"usercp.css";i:6;s:17:"thread_status.css";i:7;s:16:"star_ratings.css";i:8;s:14:"showthread.css";i:9;s:9:"modcp.css";i:11;s:16:"bootstrapfix.css";i:20;s:9:"color.css";i:25;s:14;}]]></disporder>
+		<disporder><![CDATA[a:9:{s:9:"modcp.css";i:1;s:9:"color.css";i:2;s:14:"showthread.css";i:3;s:10:"usercp.css";i:4;s:17:"thread_status.css";i:5;s:16:"bootstrapfix.css";i:6;s:16:"star_ratings.css";i:7;s:8:"css3.css";i:8;s:10:"global.css";i:9;}]]></disporder>
+		<logo><![CDATA[]]></logo>
 	</properties>
 	<stylesheets>
-		<stylesheet name="color.css" version="1838"><![CDATA[:root {
- --primary: #3E3B92;
- --secondary: #F44369;
- --bgthemes: #191919;
- --bannerpost: #26445f;
---navbar: #131d25;
+		<stylesheet name="thread_status.css" attachedto="forumdisplay.php|usercp.php|search.php" version="1838"><![CDATA[.thread_status {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background-image: url(images/folders_sprite.png);
+	background-repeat: no-repeat;
 }
-navbar-inverse{
+.argument{
+background: var(--primary);
+color:white;
+padding: 5px;
+border-radius: 5px;
+}
+.thread_status.dot_folder {
+	background-position: 0 0;
+}
+logoutnav{
+font-size:10px;
+}
+.thread_status.dot_hotfolder {
+	background-position: 0 -20px;
+}
+
+.thread_status.dot_hotclosefolder {
+	background-position: 0 -40px;
+}
+
+.thread_status.dot_closefolder {
+	background-position: 0 -60px;
+}
+
+.thread_status.dot_newfolder {
+	background-position: 0 -80px;
+}
+
+.thread_status.dot_newhotfolder {
+	background-position: 0 -100px;
+}
+
+.thread_status.dot_newhotclosefolder {
+	background-position: 0 -120px;
+}
+
+.thread_status.dot_newclosefolder {
+	background-position: 0 -140px;
+}
+
+.thread_status.folder {
+	background-position: 0 -160px;
+}
+
+.thread_status.hotfolder {
+	background-position: 0 -180px;
+}
+
+.thread_status.hotclosefolder {
+	background-position: 0 -200px;
+}
+
+.thread_status.closefolder {
+	background-position: 0 -220px;
+}
+
+.thread_status.movefolder {
+	background-position: 0 -240px;
+}
+
+.thread_status.newfolder {
+	background-position: 0 -260px;
+}
+
+.thread_status.newhotfolder {
+	background-position: 0 -280px;
+}
+
+.thread_status.newhotclosefolder {
+	background-position: 0 -300px;
+}
+
+.thread_status.newclosefolder {
+	background-position: 0 -320px;
+}]]>
+		</stylesheet>
+		<stylesheet name="star_ratings.css" attachedto="forumdisplay.php|showthread.php" version="1838"><![CDATA[.threadbit_rating > div {
+ width:90px;
+ text-align:center;
+ margin:0 auto;
+}
+
+.star_rating_container {
+  display:inline-block;
+  vertical-align:middle;
+  margin-right:6px;
+  position:relative;
+  top:0px;
+}
+.star_rating,
+.star_rating li a:hover,
+.star_rating .current_rating {
+ background: url(images/star_rating.png) left -1000px repeat-x;
+ vertical-align: middle;
+}
+
+.star_rating {
+ position: relative;
+ width:80px;
+ height:16px;
+ overflow: hidden;
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ background-position: left top;
+}
+
+
+.star_rating li {
+ display: inline;
+}
+
+.star_rating li a,
+.star_rating .current_rating {
+ position: absolute;
+ text-indent: -1000px;
+ height: 16px;
+ line-height: 16px;
+ outline: none;
+ overflow: hidden;
+ border: none;
+ top:0;
+ left:0;
+}
+
+.star_rating_notrated li a:hover {
+ background-position: left bottom;
+}
+
+.star_rating li a.one_star {
+ width:20%;
+ z-index:6;
+}
+
+.star_rating li a.two_stars {
+ width:40%;
+ z-index:5;
+}
+
+.star_rating li a.three_stars {
+ width:60%;
+ z-index:4;
+}
+
+.star_rating li a.four_stars {
+ width:80%;
+ z-index:3;
+}
+
+.star_rating li a.five_stars {
+ width:100%;
+ z-index:2;
+}
+
+.star_rating .current_rating {
+ z-index:1;
+ background-position: left center;
+}
+
+.star_rating_success,
+.success_message {
+ color: #00b200;
+ font-weight: bold;
+ font-size: 10px;
+ margin-bottom: 10px;
+}
+
+.inline_rating {
+ background: url(images/star_rating.png) left -1000px repeat-x;
+ float: left;
+ vertical-align: middle;
+ padding-right: 5px;
+}]]>
+		</stylesheet>
+		<stylesheet name="usercp.css" attachedto="usercp.php|private.php" version="1838"><![CDATA[.cp_options td:first-child{width:230px;}.usercp_options{margin:0;padding:0;list-style:none outside none;}
+
+.usercp_options>li{
+        margin:0;        padding:8px 0px;}
+
+.usercp_options>li>span{
+        display:inline-block;        text-align:right;}
+
+.usercp_nav_item{display:block;}
+
+.usercp_nav_item:before{
+font-size: 16px;font-family: 'ForkAwesome';width: 28px;margin-right: 3px;text-align: center;display: inline-block;padding: 2px 0px;}
+
+.usercp_nav_location:before {content:"\f011";}
+
+.usercp_nav_ustyle:before {content:"\f005";}
+
+.usercp_nav_emailservice:before {content:"\f0e0";}
+
+.usercp_nav_composepm:before{content:"\f112";}
+
+.usercp_nav_changename:before{content:"\f234";}
+
+.usercp_nav_pmfolder:{padding-left:20px;}
+.usercp_nav_pmfolder:before{content:"\f07c";}
+
+.usercp_nav_sub_pmfolder{padding-left:20px;}
+.usercp_nav_sub_pmfolder:before{content:"\f07b";}
+
+.usercp_nav_trash_pmfolder:before{content:"\f014";}
+
+.usercp_nav_pmtracking:before{content:"\f024";}
+
+.usercp_nav_pmfolders:before{content:"\f07b";}
+
+.usercp_nav_profile:before{content:"\f007";}
+
+.usercp_nav_email:before{content:"\f0e0";}
+
+.usercp_nav_password:before{content:"\f084";}
+
+.usercp_nav_username:before{content:"\f111";}
+
+.usercp_nav_editsig:before{content:"\f040";}
+
+.usercp_nav_avatar:before{content:"\f03e";}
+
+.usercp_nav_options:before{content:"\f085";}
+
+.usercp_nav_usergroups:before{content:"\f0c0";}
+
+.usercp_nav_editlists:before{content:"\f004";}
+
+.usercp_nav_attachments:before{content:"\f0c6";}
+
+.usercp_nav_drafts:before{content:"\f040";}
+
+.usercp_nav_subscriptions:before{content:"\f02e";}
+
+.usercp_nav_fsubscriptions:before{content:"\f03a";}
+
+.usercp_nav_notepad:before{content:"\f02d";}
+
+.usercp_nav_viewprofile:before{content:"\f007";}
+
+.usercp_nav_home:before{content:"\f015";}
+
+.usercp_nav_status:before{content:"\f118";}
+
+.usercp_nav_award:before{content:"\f091";}
+
+.usercp_notepad{width:99%;}
+
+#usercpalerts_e td[class^="trow"],#usercppms_e td[class^="trow"],#usercpprofile_e td[class^="trow"],#usercpmisc_e td[class^="trow"]{border:none;padding:0px;}
+
+.pagination{padding:3px 0px;}
+
+.usercp_notepad{width:99%;}
+
+.usercp_container{margin:5px;padding:8px;}
+
+td[class^=trow]{border:none;}
+
+.new_pm {
+	font-weight: bold;
+}
+
+span.pmstatus_new_pm:before {
+	content: "\f0e0";
+	font-family:ForkAwesome;	
+}
+
+span.pmstatus_old_pm:before {
+	content: "\f2b7";
+	font-family:ForkAwesome;	
+}
+
+span.pmstatus_re_pm:before {
+	content: "\f112";
+	font-family:ForkAwesome;	
+}
+
+span.pmstatus_fw_pm:before {
+	content: "\f064";
+	font-family:ForkAwesome;	
+}]]>
+		</stylesheet>
+		<stylesheet name="showthread.css" attachedto="showthread.php" version="1838"><![CDATA[ul.thread_tools,
+ul.thread_tools li {
+ list-style: none;
+ padding: 0;
+ margin: 0;
+}
+
+ul.thread_tools li {
+ padding-left: 24px;
+ padding-bottom: 4px;
+ margin-bottom: 3px;
+ font-size: 11px;
+ background-image: url(images/showthread_sprite.png);
+ background-repeat: no-repeat;
+}
+
+ul.thread_tools li.printable {
+ background-position: 0 0;
+}
+
+ul.thread_tools li.sendthread {
+ background-position: 0 -20px;
+}
+
+ul.thread_tools li.subscription_add {
+ background-position: 0 -40px;
+}
+
+ul.thread_tools li.subscription_remove {
+ background-position: 0 -60px;
+}
+
+ul.thread_tools li.poll {
+ background-position: 0 -80px;
+}
+
+.showthread_spinner {
+ width: 100%;
+ margin: 0 auto;
+ display: block;
+ text-align: center;
+ padding: 20px;
+}]]>
+		</stylesheet>
+		<stylesheet name="modcp.css" attachedto="modcp.php" version="1838"><![CDATA[.modcp_nav_item {
+	display: block;
+}
+.modcp_nav_item:before {font-size: 16px;font-family: 'ForkAwesome';width: 28px;margin-right: 3px;text-align: center;display: inline-block;padding: 2px 0px;color: #0F79F2;}
+.modcp_nav_home:before {content:"\f015";} 
+
+.modcp_nav_announcements:before {content:"\f0a1";}
+
+.modcp_nav_reports:before {content:"\f024";} 
+
+.modcp_nav_modqueue:before {content:"\f03a";} 
+
+.modcp_nav_modlogs:before {content:"\f02d";} 
+
+.modcp_nav_editprofile:before {content:"\f007";} 
+
+.modcp_nav_banning:before {content:"\f05e";} 
+
+.modcp_nav_warninglogs:before {content:"\f071";} 
+
+.modcp_nav_ipsearch:before {content:"\f002";} 
+
+.modqueue_message {
+	overflow: auto;
+	max-height: 250px;
+}
+
+.modqueue_controls {
+	width: 270px;
+	float: right;
+	text-align: center;
+	border: 1px solid #ccc;
+	background: #fff;
+	padding: 6px;
+	font-weight: bold;
+}
+
+.modqueue_controls label {
+	margin-right: 8px;
+}
+
+.label_radio_ignore,
+.label_radio_delete,
+.label_radio_approve {
+	font-weight: bold;
+}
+
+.modqueue_meta {
+	color: #444;
+	font-size: 95%;
+	margin-bottom: 8px;
+}
+
+.modqueue_mass {
+	list-style: none;
+	margin: 0;
+	width: 150px;
+	padding: 0;
+}
+
+.modqueue_mass li {
+	margin-bottom: 4px;
+	padding: 0;
+}
+
+.modqueue_mass li a {
+	display: block;
+	padding: 4px;
+	border: 1px solid transparent;
+}
+
+.modqueue_mass li a:hover {
+	background: #efefef;
+	border: 1px solid #ccc;
+	text-decoration: none;
+}]]>
+		</stylesheet>
+		<stylesheet name="color.css" version="1838"><![CDATA[ 
+		navbar-inverse{
 background-color: var(--navbar);
 }
 legend {
@@ -176,16 +578,6 @@ border-radius: 4px;
    border-color: var(--primary);
 }
 
-button,
-   input.button {
-    padding: 3px 8px;
-    cursor: pointer;
-    background: #1c1c1c;
-    border: 1px solid var(--primary);
-    color: #fff;
-    border-radius: 4px;
-    outline: 0;
-}
 
 button:hover,
    input.button:hover {
@@ -194,11 +586,12 @@ button:hover,
 
 button,
    input.button {
-    padding: 3px 8px;
+    padding: 10px;
+    width: 30%;
     cursor: pointer;
-    background: #1c1c1c;
+    background: #3674B5;
     border: 1px solid var(--primary);
-    color: #fff;
+    color: white;
     border-radius: 4px;
     outline: 0;
 }
@@ -210,7 +603,63 @@ button:hover,
 
 li.nav-forums:hover {
     background: var(--primary)!impotant;
-}]]>
+}
+		]]>
+		</stylesheet>
+		<stylesheet name="bootstrapfix.css" version="1838"><![CDATA[.navbar {
+    margin: 0px;
+    padding: 10px;
+}
+
+.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all .25s ease-out;
+    -o-transition: all .25s ease-out;
+    transition: all .25s ease-out;
+  }
+
+  .row-offcanvas-right {
+    right: 0;
+  }
+
+  .row-offcanvas-left {
+    left: 0;
+  }
+
+  .row-offcanvas-right .sidebar-offcanvas {
+    right: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left .sidebar-offcanvas {
+    left: -50%; /* 6 columns */
+	
+  }
+
+  .row-offcanvas-right.active {
+    right: 50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left.active {
+    left: 50%; /* 6 columns */
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 50%; /* 6 columns */
+	z-index: 1;
+  }
+}w]]>
 		</stylesheet>
 		<stylesheet name="css3.css" version="1838"><![CDATA[/** Modal Start **/
 
@@ -251,18 +700,8 @@ li.nav-forums:hover {
 	vertical-align: middle;
 	position: relative;
 	z-index: 2;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-o-border-radius: 5px;
-	-ms-border-radius: 5px;
 	border-radius: 5px;
-	-webkit-box-shadow: 0 0 10px #000;
-	-moz-box-shadow: 0 0 10px #000;
-	-o-box-shadow: 0 0 10px #000;
-	-ms-box-shadow: 0 0 10px #000;
 	box-shadow: 0 0 10px #000;
 }
 
@@ -442,16 +881,105 @@ li.nav-forums:hover {
 .select2-container .select2-choice {
     background-color: #fff;
 	background-image: none!important;
-}]]>
+}
+]]>
 		</stylesheet>
-		<stylesheet name="global.css" version="1838"><![CDATA[html {
+		<stylesheet name="global.css" version="1838"><![CDATA[:root {
+		 --primary: #3E3B92;
+  --secondary:rgb(106, 255, 118);
+  --bgthemes: #191919;
+  --bannerpost: #26445f;
+  --navbar: #131d25;
+  --mainbg: #242424;
+  --fontcolor: #ffffff;
+	--bodycolor:#1c1c1c;
+	--warncolor:#BF3131;
+}
+*{box-sizing:border-box;}
+html {
 	font-size: 14px;
+	  font-family: "Poppins", sans-serif;
+}
+#header {
+  display: flex;
+  justify-content: center;  
+  align-items: center;     
+	margin-top:4%;
+}
+
+#panel {
+  display: block;            
+  text-align: center;        
+  padding: 20px;             
+  background-color: #151414;   
+	width:90%;
+  border-radius: 8px;       
+  box-shadow: 0 4px 10px var(--mainbg); 
+}
+
+.avatar {
+  margin-top: 7px;
+  border: 4px solid (--mainbg);
+}
+
+.avatar img {
+  width: 70px;
+  height: 70px;
+}
+
+#email,#password {
+	padding-left:1px;
+}
+.logoutnav {
+	font-size:20px;
+}
+.logoutnav span{
+	display:inline !important;
+}
+.registration-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.navbar-toggle{
+	width:auto;
+}
+.register-table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.register-fieldset {
+    border-radius: 5px;
+    border: 1px solid var(--primary);
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.register-input {
+    padding: 8px;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+.register-select {
+    padding: 8px;
+    border-radius: 4px;
+	background-color:#2c2c2c;
+border:none;
+	color:white;
+}
+
+
+.register-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 body {
 	font-size: inherit;
-    background: #fff;
-    color: #333;
+    background: var(--mainbg);
+    color: var(--fontcolor);
     text-align: center;
     line-height: 1.4;
     margin: 0;
@@ -463,11 +991,16 @@ body {
 }
 
 main.container {
- margin-bottom:30px;
+	background-color:var(--bgthemes);;
+	padding:20px;
+	
+	width:90%;
+	margin-bottom:1px;
 }
 
 a:link, a:visited {
     text-decoration: none;
+	color:white;
 }
 
 header, main, .wrapper{
@@ -502,7 +1035,8 @@ header {
 }
 
 main {
-       display: block;
+	display: block;
+	background-color:var(--mainbg);
 }
 
 .avatar {
@@ -528,16 +1062,15 @@ color:white;
 @media (max-width: 767px) {
        .navbar .nav.navbar-nav.navbar-right li {
               float: none !important;
-       }
+}
+
+
 }
 
 .navigation{
-	background: var(--bgthemes);
-	padding: 7px;
-	margin: 30px 0;
+	background: #151414;
+	padding: 10px;
 	color:white;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 	border-radius: 5px;
 }
 
@@ -551,7 +1084,7 @@ color:white;
 }
 
 .stat-card-row {
-	background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+	background: var(--bgthemes);
 }
 
 .stat-card {
@@ -620,7 +1153,7 @@ color:white;
 }
 
 .tcat, *[class*="trow"] {
-    padding: 6px 5px;
+	padding: 6px 5px;
 }
 
 .tcat {
@@ -641,29 +1174,24 @@ color:white;
 }
 
 .trow1 {
-	background: #f5f5f5;
-	border: 1px solid;
-	border-color: #ddd #ddd #ddd #ddd;
-	padding:10px;
+	background: var(--bgthemes);
+	padding: 10px;
+	color:#aeaeae;
 }
 
 .trow2 {
-	background: #efefef;
-	border: 1px solid;
-	border-color: #ddd #ddd #ddd #ddd;
+	background: var(--bgthemes);
 	padding:10px;
+	color:#aeaeae;
 }
 
 legend {
-    display: block;
-    width: 100%;
-    padding: 3px;
-    margin-bottom: 20px;
-    font-size: 21px;
-    line-height: inherit;
-    color: #333;
-    border: 0;
-    border-bottom: 4px solid #3f5efa;
+	color: #aeaeae;
+	margin:0px;
+	display: block;
+	font-size:14px;
+	width:auto;
+	border:none;
 }
 
 .formbit_field {
@@ -722,7 +1250,7 @@ legend {
 .trow_selected,
    tr.trow_selected td {
     background: #FFFBD9;
-    color: #333;
+    color: #aeaeae;
     border-right-color: #F7E86A;
     border-bottom-color: #F7E86A;
 	padding:0;
@@ -732,7 +1260,7 @@ legend {
    .trow_selected a:visited,
    .trow_selected a:hover,
    .trow_selected a:active {
-    color: #333;
+    color: #aeaeae;
 }
 
 .trow_sep {
@@ -768,20 +1296,21 @@ legend {
        color: #fff;
 }
 
-.thead input.textbox,
-   .thead select {
+
+ .thead input.textbox,  .thead select {
     border: 1px solid #263c30;
  border-radius: 4px;
 }
 
+
 #footer {
-	background: #1c1c1c;
+	background: var(--bodycolor);
 	color: #666;
 	clear: both;
-	border-top: 1px solid #fff;
+	border: 2px solid #2a2a2a;
 	text-align: left;
-    padding-top: 25px;
 }
+
 
 #footer ul.menu {
     margin: 0;
@@ -855,7 +1384,6 @@ legend {
     font-weight: bold;
 }
 
-
 #debug {
     float: right;
     text-align: right;
@@ -883,6 +1411,8 @@ legend {
 .forum_status i {
        display: inline-block;
        line-height: 50px;
+	color:white;
+	font-size:30px;
 }
 
 .forum_on {
@@ -1222,25 +1752,26 @@ label strong, label b {
 }
 
 fieldset {
-       padding: 12px;
-       border: 1px solid #e0e0e0;
-       margin: 0;
+	padding: 12px;
+	margin: 0;
 }
 
 fieldset.trow1,
    fieldset.trow2 {
-    border-color: #bbb;
+	background-color:transparant;
+	border:1px solid #282828;
 }
 
 fieldset.align_right {
-    text-align: right;
+	text-align: right;
 }
 
 input.textbox {
-    background: #ffffff;
-    color: #333;
-    border: 1px solid #ccc;
-    padding: 3px;
+    background: #1c1c1c;
+    color: white;
+	border:1px solid #302e2e;
+border-bottom:1px solid #3f3f3f;
+	padding: 6px 8px;
     outline: 0;
 	border-radius: 4px;
 }
@@ -1255,10 +1786,12 @@ textarea {
 }
 
 select {
-    background: #ffffff;
+    background: #2c2c2c;;
     padding: 3px;
     border: 1px solid #ccc;
     outline: 0;
+	color:white;
+	border:none;
 	border-radius: 4px;
 }
 
@@ -2810,17 +3343,12 @@ div.calendar_row > * {
     border-radius:0px 0px 3px 0px;
 }
 
-*[class*="trow"] > *[class*="trow"] {
-    border-width:0px 1px 1px 0px;
-}
 
 *[data-width="2%"]{
     width:2%;
 }
 
-*[class*="trow"] > *[class*="trow"]:last-of-type {
-    border-right-width:0px;
-}
+
 
 *[data-width="14%"]{
     width:14%;
@@ -2902,12 +3430,72 @@ div.calendar_row > * {
    
    /* fix radio button spacing */
    
-   input[type="checkbox"], input[type="radio"] {
-       margin: 4px;
-       /* margin-top: 1px; */
-       line-height: normal;
+/* Style untuk checkbox dan radio button *//* Menyesuaikan gaya checkbox dan radio button */
+input[type="checkbox"], input[type="radio"] {
+  font-family: "Font Awesome 5 Free";  /* Menggunakan font awesome */
+  -moz-osx-font-smoothing: grayscale;  /* Menghaluskan font di macOS */
+  -webkit-font-smoothing: antialiased; /* Menghaluskan font di Webkit browsers */
+  text-rendering: auto;  /* Pengoptimalan render teks */
+  font-weight: 900;  /* Font bold */
+  -webkit-appearance: none;  /* Menghilangkan tampilan default checkbox dan radio */
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  outline: 0;  /* Menghilangkan outline */
+  font-size: 18px;  /* Ukuran font */
+  line-height: 16px;  /* Tinggi baris */
+  margin-right: 8px;  /* Jarak antar elemen */
+		  margin-left: 10px;  /* Jarak antara checkbox dan label */
+
+  cursor: pointer;  /* Menunjukkan pointer saat hover */
+  width: 20px;  /* Lebar checkbox/radio */
+  height: 20px;  /* Tinggi checkbox/radio */
+  border-radius: 4px;  /* Membulatkan sudut */
+  background-color: #333;  /* Latar belakang default (dark) */
+  border: 2px solid #777;  /* Border default */
+  display: inline-block;  /* Membuatnya tampak inline */
+  transition: all 0.3s ease;  /* Efek transisi */
 }
 
+/* Efek untuk checkbox/radio yang dipilih */
+input[type="checkbox"]:checked, input[type="radio"]:checked {
+  background-color: #4CAF50;  /* Warna latar belakang saat tercentang */
+  border-color: #4CAF50;  /* Border yang sesuai dengan latar belakang */
+}
+
+/* Ikon "check" yang akan muncul ketika dicentang */
+input[type="checkbox"]:checked::before {
+  content: '\f00c';  /* Kode unicode untuk ikon "check" */
+  font-family: "Font Awesome 5 Free";  /* Font Awesome */
+  font-weight: 900;
+
+  font-size: 14px;
+  color: white;  /* Warna ikon */
+  position: absolute;
+  top: 3px;
+  left: 3px;
+}
+
+/* Efek saat hover pada checkbox atau radio button */
+input[type="checkbox"]:hover, input[type="radio"]:hover {
+  background-color: #444;  /* Latar belakang lebih terang saat hover */
+  border-color: #aaa;  /* Border lebih terang saat hover */
+}
+
+/* Style untuk label checkbox/radio jika digunakan */
+label {
+  color: #aeaeae;  /* Warna teks label */
+  font-size: 13px;
+  cursor: pointer;
+	  font-family: "Poppins", sans-serif;
+  display: inline-block;
+  transition: color 0.3s ease;  /* Efek transisi pada label */
+}
+
+/* Menambahkan efek pada label ketika hover */
+label:hover {
+  color: #fff;  /* Warna label berubah saat hover */
+}
 #posts_container {
        border: 1px solid #ccc;
 }
@@ -2941,7 +3529,7 @@ div.calendar_row > * {
        width: auto;
 }
 
-#footer button, #footer input.button {
+#footer button, #footer {
        padding:0px 7px;
 }
 
@@ -3010,10 +3598,6 @@ div[class*="tyllist"] img[src*="collapse"] {
 	color: #555
 }
 
-#username,#password,#email,#email2,#password2,#quick_login_username,#quick_login_password{
-  padding-left: 42px;
-	width: 100%;
-}
 
 .card.pm-card {
 	padding: 10px;
@@ -3022,506 +3606,9 @@ div[class*="tyllist"] img[src*="collapse"] {
     display: flex;
     justify-content: center;
     align-items: center;
-}]]>
-		</stylesheet>
-		<stylesheet name="bootstrapfix.css" version="1838"><![CDATA[.navbar {
-    margin: 0px;
-    padding: 10px;
 }
 
-.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
-    margin-right: 0;
-    margin-left: 0;
-}
-
-/*
- * Off Canvas
- * --------------------------------------------------
- */
-@media screen and (max-width: 767px) {
-  .row-offcanvas {
-    position: relative;
-    -webkit-transition: all .25s ease-out;
-    -o-transition: all .25s ease-out;
-    transition: all .25s ease-out;
-  }
-
-  .row-offcanvas-right {
-    right: 0;
-  }
-
-  .row-offcanvas-left {
-    left: 0;
-  }
-
-  .row-offcanvas-right .sidebar-offcanvas {
-    right: -50%; /* 6 columns */
-  }
-
-  .row-offcanvas-left .sidebar-offcanvas {
-    left: -50%; /* 6 columns */
-	
-  }
-
-  .row-offcanvas-right.active {
-    right: 50%; /* 6 columns */
-  }
-
-  .row-offcanvas-left.active {
-    left: 50%; /* 6 columns */
-  }
-
-  .sidebar-offcanvas {
-    position: absolute;
-    top: 0;
-    width: 50%; /* 6 columns */
-	z-index: 1;
-  }
-}
-		
-		
-		]]>
-		</stylesheet>
-		<stylesheet name="star_ratings.css" attachedto="forumdisplay.php|showthread.php" version="1838"><![CDATA[.threadbit_rating > div {
- width:90px;
- text-align:center;
- margin:0 auto;
-}
-
-.star_rating_container {
-  display:inline-block;
-  vertical-align:middle;
-  margin-right:6px;
-  position:relative;
-  top:0px;
-}
-.star_rating,
-.star_rating li a:hover,
-.star_rating .current_rating {
- background: url(images/star_rating.png) left -1000px repeat-x;
- vertical-align: middle;
-}
-
-.star_rating {
- position: relative;
- width:80px;
- height:16px;
- overflow: hidden;
- list-style: none;
- margin: 0;
- padding: 0;
- background-position: left top;
-}
-
-
-.star_rating li {
- display: inline;
-}
-
-.star_rating li a,
-.star_rating .current_rating {
- position: absolute;
- text-indent: -1000px;
- height: 16px;
- line-height: 16px;
- outline: none;
- overflow: hidden;
- border: none;
- top:0;
- left:0;
-}
-
-.star_rating_notrated li a:hover {
- background-position: left bottom;
-}
-
-.star_rating li a.one_star {
- width:20%;
- z-index:6;
-}
-
-.star_rating li a.two_stars {
- width:40%;
- z-index:5;
-}
-
-.star_rating li a.three_stars {
- width:60%;
- z-index:4;
-}
-
-.star_rating li a.four_stars {
- width:80%;
- z-index:3;
-}
-
-.star_rating li a.five_stars {
- width:100%;
- z-index:2;
-}
-
-.star_rating .current_rating {
- z-index:1;
- background-position: left center;
-}
-
-.star_rating_success,
-.success_message {
- color: #00b200;
- font-weight: bold;
- font-size: 10px;
- margin-bottom: 10px;
-}
-
-.inline_rating {
- background: url(images/star_rating.png) left -1000px repeat-x;
- float: left;
- vertical-align: middle;
- padding-right: 5px;
-}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		]]>
-		</stylesheet>
-		<stylesheet name="thread_status.css" attachedto="forumdisplay.php|usercp.php|search.php" version="1838"><![CDATA[.thread_status {
-	display: inline-block;
-	width: 16px;
-	height: 16px;
-	background-image: url(images/folders_sprite.png);
-	background-repeat: no-repeat;
-}
-
-.thread_status.dot_folder {
-	background-position: 0 0;
-}
-
-.thread_status.dot_hotfolder {
-	background-position: 0 -20px;
-}
-
-.thread_status.dot_hotclosefolder {
-	background-position: 0 -40px;
-}
-
-.thread_status.dot_closefolder {
-	background-position: 0 -60px;
-}
-
-.thread_status.dot_newfolder {
-	background-position: 0 -80px;
-}
-
-.thread_status.dot_newhotfolder {
-	background-position: 0 -100px;
-}
-
-.thread_status.dot_newhotclosefolder {
-	background-position: 0 -120px;
-}
-
-.thread_status.dot_newclosefolder {
-	background-position: 0 -140px;
-}
-
-.thread_status.folder {
-	background-position: 0 -160px;
-}
-
-.thread_status.hotfolder {
-	background-position: 0 -180px;
-}
-
-.thread_status.hotclosefolder {
-	background-position: 0 -200px;
-}
-
-.thread_status.closefolder {
-	background-position: 0 -220px;
-}
-
-.thread_status.movefolder {
-	background-position: 0 -240px;
-}
-
-.thread_status.newfolder {
-	background-position: 0 -260px;
-}
-
-.thread_status.newhotfolder {
-	background-position: 0 -280px;
-}
-
-.thread_status.newhotclosefolder {
-	background-position: 0 -300px;
-}
-
-.thread_status.newclosefolder {
-	background-position: 0 -320px;
-}]]>
-		</stylesheet>
-		<stylesheet name="showthread.css" attachedto="showthread.php" version="1838"><![CDATA[ul.thread_tools,
-ul.thread_tools li {
- list-style: none;
- padding: 0;
- margin: 0;
-}
-
-ul.thread_tools li {
- padding-left: 24px;
- padding-bottom: 4px;
- margin-bottom: 3px;
- font-size: 11px;
- background-image: url(images/showthread_sprite.png);
- background-repeat: no-repeat;
-}
-
-ul.thread_tools li.printable {
- background-position: 0 0;
-}
-
-ul.thread_tools li.sendthread {
- background-position: 0 -20px;
-}
-
-ul.thread_tools li.subscription_add {
- background-position: 0 -40px;
-}
-
-ul.thread_tools li.subscription_remove {
- background-position: 0 -60px;
-}
-
-ul.thread_tools li.poll {
- background-position: 0 -80px;
-}
-
-.showthread_spinner {
- width: 100%;
- margin: 0 auto;
- display: block;
- text-align: center;
- padding: 20px;
-}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		]]>
-		</stylesheet>
-		<stylesheet name="usercp.css" attachedto="usercp.php|private.php" version="1838"><![CDATA[.cp_options td:first-child{width:230px;}.usercp_options{margin:0;padding:0;list-style:none outside none;}
-
-.usercp_options>li{
-        margin:0;        padding:8px 0px;}
-
-.usercp_options>li>span{
-        display:inline-block;        text-align:right;}
-
-.usercp_nav_item{display:block;}
-
-.usercp_nav_item:before{
-font-size: 16px;font-family: 'ForkAwesome';width: 28px;margin-right: 3px;text-align: center;display: inline-block;padding: 2px 0px;}
-
-.usercp_nav_location:before {content:"\f011";}
-
-.usercp_nav_ustyle:before {content:"\f005";}
-
-.usercp_nav_emailservice:before {content:"\f0e0";}
-
-.usercp_nav_composepm:before{content:"\f112";}
-
-.usercp_nav_changename:before{content:"\f234";}
-
-.usercp_nav_pmfolder:{padding-left:20px;}
-.usercp_nav_pmfolder:before{content:"\f07c";}
-
-.usercp_nav_sub_pmfolder{padding-left:20px;}
-.usercp_nav_sub_pmfolder:before{content:"\f07b";}
-
-.usercp_nav_trash_pmfolder:before{content:"\f014";}
-
-.usercp_nav_pmtracking:before{content:"\f024";}
-
-.usercp_nav_pmfolders:before{content:"\f07b";}
-
-.usercp_nav_profile:before{content:"\f007";}
-
-.usercp_nav_email:before{content:"\f0e0";}
-
-.usercp_nav_password:before{content:"\f084";}
-
-.usercp_nav_username:before{content:"\f111";}
-
-.usercp_nav_editsig:before{content:"\f040";}
-
-.usercp_nav_avatar:before{content:"\f03e";}
-
-.usercp_nav_options:before{content:"\f085";}
-
-.usercp_nav_usergroups:before{content:"\f0c0";}
-
-.usercp_nav_editlists:before{content:"\f004";}
-
-.usercp_nav_attachments:before{content:"\f0c6";}
-
-.usercp_nav_drafts:before{content:"\f040";}
-
-.usercp_nav_subscriptions:before{content:"\f02e";}
-
-.usercp_nav_fsubscriptions:before{content:"\f03a";}
-
-.usercp_nav_notepad:before{content:"\f02d";}
-
-.usercp_nav_viewprofile:before{content:"\f007";}
-
-.usercp_nav_home:before{content:"\f015";}
-
-.usercp_nav_status:before{content:"\f118";}
-
-.usercp_nav_award:before{content:"\f091";}
-
-.usercp_notepad{width:99%;}
-
-#usercpalerts_e td[class^="trow"],#usercppms_e td[class^="trow"],#usercpprofile_e td[class^="trow"],#usercpmisc_e td[class^="trow"]{border:none;padding:0px;}
-
-.pagination{padding:3px 0px;}
-
-.usercp_notepad{width:99%;}
-
-.usercp_container{margin:5px;padding:8px;}
-
-td[class^=trow]{border:none;}
-
-.new_pm {
-	font-weight: bold;
-}
-
-span.pmstatus_new_pm:before {
-	content: "\f0e0";
-	font-family:ForkAwesome;	
-}
-
-span.pmstatus_old_pm:before {
-	content: "\f2b7";
-	font-family:ForkAwesome;	
-}
-
-span.pmstatus_re_pm:before {
-	content: "\f112";
-	font-family:ForkAwesome;	
-}
-
-span.pmstatus_fw_pm:before {
-	content: "\f064";
-	font-family:ForkAwesome;	
-}
-		
-		
-		
-		
-		
-		
-		]]>
-		</stylesheet>
-		<stylesheet name="modcp.css" attachedto="modcp.php" version="1838"><![CDATA[.modcp_nav_item {
-	display: block;
-}
-.modcp_nav_item:before {font-size: 16px;font-family: 'ForkAwesome';width: 28px;margin-right: 3px;text-align: center;display: inline-block;padding: 2px 0px;color: #0F79F2;}
-.modcp_nav_home:before {content:"\f015";} 
-
-.modcp_nav_announcements:before {content:"\f0a1";}
-
-.modcp_nav_reports:before {content:"\f024";} 
-
-.modcp_nav_modqueue:before {content:"\f03a";} 
-
-.modcp_nav_modlogs:before {content:"\f02d";} 
-
-.modcp_nav_editprofile:before {content:"\f007";} 
-
-.modcp_nav_banning:before {content:"\f05e";} 
-
-.modcp_nav_warninglogs:before {content:"\f071";} 
-
-.modcp_nav_ipsearch:before {content:"\f002";} 
-
-.modqueue_message {
-	overflow: auto;
-	max-height: 250px;
-}
-
-.modqueue_controls {
-	width: 270px;
-	float: right;
-	text-align: center;
-	border: 1px solid #ccc;
-	background: #fff;
-	padding: 6px;
-	font-weight: bold;
-}
-
-.modqueue_controls label {
-	margin-right: 8px;
-}
-
-.label_radio_ignore,
-.label_radio_delete,
-.label_radio_approve {
-	font-weight: bold;
-}
-
-.modqueue_meta {
-	color: #444;
-	font-size: 95%;
-	margin-bottom: 8px;
-}
-
-.modqueue_mass {
-	list-style: none;
-	margin: 0;
-	width: 150px;
-	padding: 0;
-}
-
-.modqueue_mass li {
-	margin-bottom: 4px;
-	padding: 0;
-}
-
-.modqueue_mass li a {
-	display: block;
-	padding: 4px;
-	border: 1px solid transparent;
-}
-
-.modqueue_mass li a:hover {
-	background: #efefef;
-	border: 1px solid #ccc;
-	text-decoration: none;
-}
-		
-		
-		
-		
-		
-		
-		
-		]]>
+]]>
 		</stylesheet>
 	</stylesheets>
 	<templates>
@@ -3960,6 +4047,7 @@ span.pmstatus_fw_pm:before {
 {$footer}
 </body>
 </html>]]></template>
+		<template name="calendar_addeventlink" version="1702"><![CDATA[<a href="calendar.php?action=addevent&amp;calendar={$calendar['cid']}" class="label label_green">{$lang->add_public_event}</a> <a class="label label_blue" href="calendar.php?action=addevent&amp;calendar={$calendar['cid']}&amp;private=1">{$lang->add_private_event}</a>]]></template>
 		<template name="calendar_addevent_calendarselect" version="1702"><![CDATA[
 
 <div class="trow1 rowbit">
@@ -3969,7 +4057,6 @@ span.pmstatus_fw_pm:before {
 				</select></div>
 </div>]]></template>
 		<template name="calendar_addevent_calendarselect_hidden" version="1800"><![CDATA[<input type="hidden" name="calendar" value="{$calendar['cid']}" />]]></template>
-		<template name="calendar_addeventlink" version="1702"><![CDATA[<a href="calendar.php?action=addevent&amp;calendar={$calendar['cid']}" class="label label_green">{$lang->add_public_event}</a> <a class="label label_blue" href="calendar.php?action=addevent&amp;calendar={$calendar['cid']}&amp;private=1">{$lang->add_private_event}</a>]]></template>
 		<template name="calendar_addprivateevent" version="1400"><![CDATA[<a href="calendar.php?action=addevent&amp;calendar={$calendar['cid']}&amp;private=1">{$lang->add_private_event}</a>]]></template>
 		<template name="calendar_addpublicevent" version="1702"><![CDATA[<a href="calendar.php?action=addevent&amp;calendar={$calendar['cid']}">{$lang->add_public_event}</a>]]></template>
 		<template name="calendar_day" version="1800"><![CDATA[<option value="{$day}" {$selected}>{$day}</option>]]></template>
@@ -4487,6 +4574,7 @@ span.pmstatus_fw_pm:before {
 {$footer}
 </body>
 </html>]]></template>
+		<template name="calendar_eventbit" version="1402"><![CDATA[<div class="smalltext {$event_class}"><a href="{$event['eventlink']}" title="{$event['fullname']}">{$event['name']}</a></div>]]></template>
 		<template name="calendar_event_editbutton" version="1702"><![CDATA[<span>
 	<a href="calendar.php?action=editevent&amp;eid={$event['eid']}" class="label label_green"><i class="fa fa-pencil"></i>  <span>{$lang->postbit_button_edit}</span></a>
 	<a href="javascript:MyBB.deleteEvent({$event['eid']});" class="label label_red"><i class="fa fa-trash-o"></i> <span>{$lang->postbit_button_qdelete}</span></a>
@@ -4503,7 +4591,6 @@ span.pmstatus_fw_pm:before {
 				</form>
 </div>]]></template>
 		<template name="calendar_event_userstar" version="1800"><![CDATA[<img src="{$event['starimage']}" alt="*" />]]></template>
-		<template name="calendar_eventbit" version="1402"><![CDATA[<div class="smalltext {$event_class}"><a href="{$event['eventlink']}" title="{$event['fullname']}">{$event['name']}</a></div>]]></template>
 		<template name="calendar_jump" version="1800"><![CDATA[<br />
 <span class="smalltext">{$lang->jump_to_calendar}</span>
 <select name="calendar">
@@ -4854,7 +4941,6 @@ MyBBEditor = $("#{$bind}").sceditor("instance");
 </body>
 </html>]]></template>
 		<template name="debug_summary" version="1800"><![CDATA[<div id="debug">{$generated_in} {$debug_weight} <br />{$sql_queries} / {$server_load} / {$memory_usage}<br />[<a href="{$debuglink}" target="_blank">{$lang->debug_advanced_details}</a>]<br /></div>]]></template>
-		
 		<template name="editpost" version="1837"><![CDATA[<html>
 <head>
 <title>{$mybb->settings['bbname']} - {$lang->edit_post}</title>
@@ -5243,7 +5329,6 @@ color:white;
 {$footer}
 </body>
 </html>]]></template>
-		<template name="forumdisplay_announcement_rating" version="1806"><![CDATA[<div class="threadbit_rating align_center" data-width="15%">-</div>]]></template>
 		<template name="forumdisplay_announcements" version="1806"><![CDATA[<div class="trow_sep smalltext">{$lang->forum_announcements}</div>
 {$announcements}]]></template>
 		<template name="forumdisplay_announcements_announcement" version="1806"><![CDATA[<div class="{$bgcolor} forumdisplay_announcement rowbit">
@@ -5277,6 +5362,7 @@ color:white;
 	</div>
 </div>]]></template>
 		<template name="forumdisplay_announcements_announcement_modbit" version="1806"><![CDATA[<span class="threadbit_modbit"></span>]]></template>
+		<template name="forumdisplay_announcement_rating" version="1806"><![CDATA[<div class="threadbit_rating align_center" data-width="15%">-</div>]]></template>
 		<template name="forumdisplay_forumsort" version="1827"><![CDATA[<div class="tfoot">
 	<div class="forumdisplay_sorting_options">
 		<form action="forumdisplay.php" method="get">
@@ -5459,79 +5545,6 @@ color:white;
 		</span>
 	</div>
 </div>]]></template>
-		<template name="forumdisplay_thread_attachment_count" version="1702"><![CDATA[<span class="float_right forumdisplay_thread_attachment_count"><i class="fa fa-paperclip" title="{$attachment_count}"></i></span>]]></template>
-		<template name="forumdisplay_thread_deleted" version="1812"><![CDATA[<tr class="inline_row">
-	<td align="center" class="{$bgcolor}{$thread_type_class}" width="2%"><span class="thread_status {$folder}" title="{$folder_label}">&nbsp;</span></td>
-	<td align="center" class="{$bgcolor}{$thread_type_class}" width="2%">&nbsp;</td>
-	<td class="{$bgcolor}{$thread_type_class}"><em>{$lang->deleted_thread}</em></td>
-	<td align="center" class="{$bgcolor}{$thread_type_class}">-</td>
-	<td align="center" class="{$bgcolor}{$thread_type_class}">-</td>
-	{$rating}
-	<td class="{$bgcolor}{$thread_type_class}" style="white-space: nowrap; text-align: right;">-</td>
-	{$modbit}
-</tr>
-
-
-<div class="inline_row {$bgcolor}{$thread_type_class} rowbit">
-
-
-
-<div class="threadbit_main" data-width="60%" data-rate-thread="{$foruminfo['allowtratings']}">
-	
-<div class="threadbit_folder"><span class="folder thread_status {$folder}"  title="{$folder_label}"></span></div>
-<div class="threadbit_title">
-
-  <div>
-    
-
-
-{$lang->deleted_thread}</div>
-
-<div class="smalltext">{$thread['profilelink']}</div>
-
-</div>
-
-
-</div>
-
-
-<div class="threadbit_stats threadbit_replies align_center smalltext" data-width="7.5%" data-lang="{$lang->replies}">-</div>
-
-<div class="threadbit_stats threadbit_views align_center smalltext" data-width="7.5%" data-lang="{$lang->views}">
--</div>
-
-{$rating}
-
-<div class="threadbit_lastpost smalltext" data-width="25%">
-{$modbit}
-<span data-moderation="{$ismod}">
-
--
-		</span>
-	</div>
-
-  
-  
-  </div>]]></template>
-		<template name="forumdisplay_thread_gotounread" version="1837"><![CDATA[<a href="{$thread['newpostlink']}" title="{$lang->goto_first_unread}"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>]]></template>
-		<template name="forumdisplay_thread_icon" version="1837"><![CDATA[]]></template>
-		<template name="forumdisplay_thread_modbit" version="1702"><![CDATA[<span class="threadbit_modbit"><input type="checkbox" class="checkbox" name="inlinemod_{$multitid}" id="inlinemod_{$multitid}" value="1" {$inlinecheck}  /></span>]]></template>
-		<template name="forumdisplay_thread_multipage" version="1806"><![CDATA[ <span class="smalltext threadbit_pagination">({$lang->pages} {$threadpages}{$morelink})</span>]]></template>
-		<template name="forumdisplay_thread_multipage_more" version="1600"><![CDATA[... <a href="{$page_link}">{$thread['pages']}</a>]]></template>
-		<template name="forumdisplay_thread_multipage_page" version="1400"><![CDATA[<a href="{$page_link}">{$i}</a> ]]></template>
-		<template name="forumdisplay_thread_rating" version="1806"><![CDATA[<div class="threadbit_rating align_center" id="rating_table_{$thread['tid']}" data-width="15%">
-		<div>
-		<ul class="star_rating{$not_rated}" id="rating_thread_{$thread['tid']}">
-			<li style="width: {$thread['width']}%" class="current_rating" id="current_rating_{$thread['tid']}">{$ratingvotesav}</li>
-		</ul>
-		<script>
-		<!--
-			Rating.build_forumdisplay({$thread['tid']}, { width: '{$thread['width']}', extra_class: '{$not_rated}', current_average: '{$ratingvotesav}' });
-		// -->
-		</script>
-</div></div>]]></template>
-		<template name="forumdisplay_thread_rating_moved" version="1702"><![CDATA[<div class="threadbit_rating align_center" data-width="10%">-</div>]]></template>
-		<template name="forumdisplay_thread_unapproved_posts" version="1800"><![CDATA[ <span title="{$unapproved_posts_count}">({$thread['unapprovedposts']})</span>]]></template>
 		<template name="forumdisplay_threadlist" version="1827"><![CDATA[<div class="float_left">
 	{$multipage}
 </div>
@@ -5654,6 +5667,79 @@ color:white;
 		<template name="forumdisplay_threadlist_sortrating" version="120"><![CDATA[<option value="rating" {$sortsel['rating']}>{$lang->sort_by_rating}</option>]]></template>
 		<template name="forumdisplay_threadlist_subscription" version="1820"><![CDATA[<a href="usercp.php?action={$add_remove_subscription}subscription&amp;type=forum&amp;fid={$fid}&amp;my_post_key={$mybb->post_code}">{$add_remove_subscription_text}</a>]]></template>
 		<template name="forumdisplay_threads_sep" version="1802"><![CDATA[<div class="trow_sep smalltext">{$lang->normal_threads}</div>]]></template>
+		<template name="forumdisplay_thread_attachment_count" version="1702"><![CDATA[<span class="float_right forumdisplay_thread_attachment_count"><i class="fa fa-paperclip" title="{$attachment_count}"></i></span>]]></template>
+		<template name="forumdisplay_thread_deleted" version="1812"><![CDATA[<tr class="inline_row">
+	<td align="center" class="{$bgcolor}{$thread_type_class}" width="2%"><span class="thread_status {$folder}" title="{$folder_label}">&nbsp;</span></td>
+	<td align="center" class="{$bgcolor}{$thread_type_class}" width="2%">&nbsp;</td>
+	<td class="{$bgcolor}{$thread_type_class}"><em>{$lang->deleted_thread}</em></td>
+	<td align="center" class="{$bgcolor}{$thread_type_class}">-</td>
+	<td align="center" class="{$bgcolor}{$thread_type_class}">-</td>
+	{$rating}
+	<td class="{$bgcolor}{$thread_type_class}" style="white-space: nowrap; text-align: right;">-</td>
+	{$modbit}
+</tr>
+
+
+<div class="inline_row {$bgcolor}{$thread_type_class} rowbit">
+
+
+
+<div class="threadbit_main" data-width="60%" data-rate-thread="{$foruminfo['allowtratings']}">
+	
+<div class="threadbit_folder"><span class="folder thread_status {$folder}"  title="{$folder_label}"></span></div>
+<div class="threadbit_title">
+
+  <div>
+    
+
+
+{$lang->deleted_thread}</div>
+
+<div class="smalltext">{$thread['profilelink']}</div>
+
+</div>
+
+
+</div>
+
+
+<div class="threadbit_stats threadbit_replies align_center smalltext" data-width="7.5%" data-lang="{$lang->replies}">-</div>
+
+<div class="threadbit_stats threadbit_views align_center smalltext" data-width="7.5%" data-lang="{$lang->views}">
+-</div>
+
+{$rating}
+
+<div class="threadbit_lastpost smalltext" data-width="25%">
+{$modbit}
+<span data-moderation="{$ismod}">
+
+-
+		</span>
+	</div>
+
+  
+  
+  </div>]]></template>
+		<template name="forumdisplay_thread_gotounread" version="1837"><![CDATA[<a href="{$thread['newpostlink']}" title="{$lang->goto_first_unread}"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>]]></template>
+		<template name="forumdisplay_thread_icon" version="1837"><![CDATA[]]></template>
+		<template name="forumdisplay_thread_modbit" version="1702"><![CDATA[<span class="threadbit_modbit"><input type="checkbox" class="checkbox" name="inlinemod_{$multitid}" id="inlinemod_{$multitid}" value="1" {$inlinecheck}  /></span>]]></template>
+		<template name="forumdisplay_thread_multipage" version="1806"><![CDATA[ <span class="smalltext threadbit_pagination">({$lang->pages} {$threadpages}{$morelink})</span>]]></template>
+		<template name="forumdisplay_thread_multipage_more" version="1600"><![CDATA[... <a href="{$page_link}">{$thread['pages']}</a>]]></template>
+		<template name="forumdisplay_thread_multipage_page" version="1400"><![CDATA[<a href="{$page_link}">{$i}</a> ]]></template>
+		<template name="forumdisplay_thread_rating" version="1806"><![CDATA[<div class="threadbit_rating align_center" id="rating_table_{$thread['tid']}" data-width="15%">
+		<div>
+		<ul class="star_rating{$not_rated}" id="rating_thread_{$thread['tid']}">
+			<li style="width: {$thread['width']}%" class="current_rating" id="current_rating_{$thread['tid']}">{$ratingvotesav}</li>
+		</ul>
+		<script>
+		<!--
+			Rating.build_forumdisplay({$thread['tid']}, { width: '{$thread['width']}', extra_class: '{$not_rated}', current_average: '{$ratingvotesav}' });
+		// -->
+		</script>
+</div></div>]]></template>
+		<template name="forumdisplay_thread_rating_moved" version="1702"><![CDATA[<div class="threadbit_rating align_center" data-width="10%">-</div>]]></template>
+		<template name="forumdisplay_thread_unapproved_posts" version="1800"><![CDATA[ <span title="{$unapproved_posts_count}">({$thread['unapprovedposts']})</span>]]></template>
 		<template name="forumdisplay_usersbrowsing_user" version="1400"><![CDATA[{$comma}{$user['profilelink']}{$invisiblemark}]]></template>
 		<template name="forumjump_advanced" version="1821"><![CDATA[<form action="forumdisplay.php" method="get">
 <span class="smalltext">{$lang->forumjump}</span>
@@ -5712,7 +5798,12 @@ $(".forumjump").on('change', function() {
 		<template name="global_remote_avatar_notice" version="1815"><![CDATA[<div class="alert alert_red"><a href="{$mybb->settings['bburl']}/usercp.php?action=avatar">{$lang->remote_avatar_disabled_default_avatar}</a></div>]]></template>
 		<template name="global_unreadreports" version="1820"><![CDATA[<a href="{$mybb->settings['bburl']}/modcp.php?action=reports">{$lang->unread_reports}</a>]]></template>
 		<template name="gobutton" version="120"><![CDATA[<input type="submit" class="button" value="{$lang->go}" />]]></template>
+		<template name="guestusers" version="1838"><![CDATA[<ul class="nav navbar-nav navbar-right">
+	<li class="nav-forums"><a href="{$mybb->settings['bburl']}/member.php?action=login"><i class="fa fa-sign-in"></i> login</a></li>
+	<li class="nav-forums"><a href="{$mybb->settings['bburl']}/member.php?action=register"><i class="fa fa-user-plus"></i> register</a></li>
+	</ul>]]></template>
 		<template name="header" version="1838"><![CDATA[<header>
+	<script src="https://kit.fontawesome.com/66a713093a.js" crossorigin="anonymous"></script>
    <div class="navbar navbar-inverse">
       <div class="container">
          <div class="navbar-header">
@@ -5738,7 +5829,7 @@ $(".forumjump").on('change', function() {
                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-               {$logged_in_out}
+              {$logged_in_out}
             </ul>
          </div>
       </div>
@@ -5748,6 +5839,7 @@ $(".forumjump").on('change', function() {
    <a name="top" id="top"></a>
    <div id="header">
       <div id="panel">
+               {$welcomeblock}
       </div>
    </div>
 </div>
@@ -5759,63 +5851,6 @@ $(".forumjump").on('change', function() {
 {$modnotice}
 {$pending_joinrequests}
 {$awaitingusers}]]></template>
-        <template name="portal_stats" version="1400"><![CDATA[<div class="tborder">
-<div class="thead">{$lang->board_stats}</div>
-<div class="trow1">
-<ul class="list_style">
-<li>{$lang->stats_posts_threads}</li>
-<li>{$lang->stats_numusers}</li>
-<li>{$lang->stats_newestuser}</li>
-<li>{$lang->stats_mostonline}</li>
-</ul>
-</div>
-</div>]]></template>
-		<template name="header_menu_calendar" version="1800"><![CDATA[<li><a href="{$mybb->settings['bburl']}/calendar.php" class="calendar">{$lang->toplinks_calendar}</a></li>]]></template>
-		<template name="header_menu_portal" version="1800"><![CDATA[<li><a href="{$mybb->settings['bburl']}/portal.php" class="portal">{$lang->toplinks_portal}</a></li>]]></template>
-		<template name="header_welcomeblock_guest_login_modal" version="1838"><![CDATA[<tr>
-	<td class="trow1" width="25%"><strong>{$login_username}</strong></td>
-	<td class="trow1">
-		<span class="input-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
-		<input name="quick_username" id="quick_login_username" type="text" value="" class="textbox initial_focus" /></td>
-</tr>
-<tr>
-	<td class="trow2"><strong>{$lang->password}</strong></td>
-	<td class="trow2">
-		<span class="input-icon"><i class="fa fa-key" aria-hidden="true"></i></span>
-		<input name="quick_password" id="quick_login_password" type="password" value="" class="textbox" /><br />
-		<a href="{$mybb->settings['bburl']}/member.php?action=lostpw" class="lost_password">{$lang->lost_password}</a>
-	</td>
-</tr>
-<tr>
-	<td class="trow1">&nbsp;</td>
-	<td class="trow1 remember_me">
-		<input name="quick_remember" id="quick_login_remember" type="checkbox" value="yes" class="checkbox" checked="checked" />
-		<label for="quick_login_remember">{$lang->remember_me}</label>
-	</td>
-</tr>
-<tr>
-	<td class="trow2" colspan="2">
-		<div align="center"><input name="submit" type="submit" class="button" value="{$lang->login}" /></div>
-	</td>
-</tr>]]></template>
-		<template name="header_welcomeblock_member" version="1838"><![CDATA[<div class="float_left hidden-xs avatar"><a href="{$mybb->settings['bburl']}/member.php?action=profile"><img src="{$mybb->user['avatar']}" onerror="if (this.src != 'images/default_avatar.png') this.src = 'images/default_avatar.png';" class="img-rounded" style="width:70px;height:70px;margin-top:7px;border: 4px solid #aaa;"></a></div>
-
-<div class="hidden-xs"><h4>{$lang->welcome_back}</h4></div>
-
-{$usercplink}
-{$modcplink}
-{$admincplink}
-
-
-<a href="{$mybb->settings['bburl']}/member.php?action=logout&amp;logoutkey={$mybb->user['logoutkey']}" class="register btn btn-sm btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="{$lang->welcome_logout}"><i class="fa fa-sign-out"></i><span class="hidden-xs"> {$lang->welcome_logout}</span></a>
-	
-<span class="float_right">{$pmslink}
-{$buddylink}</span>]]></template>
-		<template name="header_welcomeblock_member_admin" version="1838"><![CDATA[<a href="{$mybb->settings['bburl']}/{$admin_dir}/index.php" class="register btn btn-sm btn-info" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="{$lang->welcome_admin}"><i class="fa fa-cogs"></i><span class="hidden-xs"> {$lang->welcome_admin}</span></a>]]></template>
-		<template name="header_welcomeblock_member_buddy" version="1838"><![CDATA[<a id="buddylink" href="javascript:void(0)" onclick="MyBB.popupWindow('{$mybb->settings['bburl']}/misc.php?action=buddypopup&modal=1', null, true); return false;" class="register btn btn-sm btn-warning" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="{$lang->welcome_open_buddy_list}"><i class="fa fa-heart"></i><span class="hidden-xs"> {$lang->welcome_open_buddy_list}</span></a>]]></template>
-		<template name="header_welcomeblock_member_moderator" version="1838"><![CDATA[<a href="{$mybb->settings['bburl']}/modcp.php" class="register btn btn-sm btn-warning" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="{$lang->welcome_modcp}"><i class="fa fa-cog"></i><span class="hidden-xs"> {$lang->welcome_modcp}</span></a>]]></template>
-		<template name="header_welcomeblock_member_pms" version="1838"><![CDATA[<a href="{$mybb->settings['bburl']}/private.php" class="register btn btn-sm btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="{$lang->welcome_pms_usage}"><i class="fa fa-envelope"></i><span class="hidden-xs"> {$lang->welcome_pms}</span></a>]]></template>
-		<template name="header_welcomeblock_member_user" version="1838"><![CDATA[<a href="{$mybb->settings['bburl']}/usercp.php" class="btn btn-sm btn-success" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="{$lang->welcome_usercp}"><i class="fa fa-user"></i><span class="hidden-xs"> {$lang->welcome_usercp}</span></a>]]></template>
 		<template name="headerinclude" version="1838"><![CDATA[<link rel="alternate" type="application/rss+xml" title="{$lang->latest_threads} (RSS 2.0)" href="{$mybb->settings['bburl']}/syndication.php">
 <link rel="alternate" type="application/atom+xml" title="{$lang->latest_threads} (Atom 1.0)" href="{$mybb->settings['bburl']}/syndication.php?type=atom1.0">
 <meta http-equiv="Content-Type" content="text/html; charset={$charset}">
@@ -5878,6 +5913,22 @@ $(".forumjump").on('change', function() {
 </script>
 
 <link rel="shortcut icon" href="{$mybb->asset_url}/images/tek/fav.png">]]></template>
+		<template name="header_menu_calendar" version="1800"><![CDATA[<li><a href="{$mybb->settings['bburl']}/calendar.php" class="calendar">{$lang->toplinks_calendar}</a></li>]]></template>
+		<template name="header_menu_portal" version="1800"><![CDATA[<li><a href="{$mybb->settings['bburl']}/portal.php" class="portal">{$lang->toplinks_portal}</a></li>]]></template>
+		<template name="header_welcomeblock_member" version="1838"><![CDATA[<div class="float_left hidden-xs avatar"><a href="{$mybb->settings['bburl']}/member.php?action=profile"><img src="{$mybb->user['avatar']}" onerror="if (this.src != 'images/default_avatar.png') this.src = 'images/default_avatar.png';" class="img-rounded" style="width:70px;height:70px;margin-top:7px;border: 4px solid #aaa;"></a></div>
+
+<div class="hidden-xs"><h4>{$lang->welcome_back}</h4></div>
+
+{$usercplink}
+{$modcplink}
+{$admincplink}
+{$pmslink}
+{$buddylink}]]></template>
+		<template name="header_welcomeblock_member_admin" version="1838"><![CDATA[<a href="{$mybb->settings['bburl']}/{$admin_dir}/index.php" class="register btn btn-sm btn-info" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="{$lang->welcome_admin}"><i class="fa fa-cogs"></i><span class="hidden-xs"> {$lang->welcome_admin}</span></a>]]></template>
+		<template name="header_welcomeblock_member_buddy" version="1838"><![CDATA[<a id="buddylink" href="javascript:void(0)" onclick="MyBB.popupWindow('{$mybb->settings['bburl']}/misc.php?action=buddypopup&modal=1', null, true); return false;" class="register btn btn-sm btn-warning" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="{$lang->welcome_open_buddy_list}"><i class="fa fa-heart"></i><span class="hidden-xs"> {$lang->welcome_open_buddy_list}</span></a>]]></template>
+		<template name="header_welcomeblock_member_moderator" version="1838"><![CDATA[<a href="{$mybb->settings['bburl']}/modcp.php" class="register btn btn-sm btn-warning" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="{$lang->welcome_modcp}"><i class="fa fa-cog"></i><span class="hidden-xs"> {$lang->welcome_modcp}</span></a>]]></template>
+		<template name="header_welcomeblock_member_pms" version="1838"><![CDATA[<a href="{$mybb->settings['bburl']}/private.php" class="register btn btn-sm btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="{$lang->welcome_pms_usage}"><i class="fa fa-envelope"></i><span class="hidden-xs"> {$lang->welcome_pms}</span></a>]]></template>
+		<template name="header_welcomeblock_member_user" version="1838"><![CDATA[<a href="{$mybb->settings['bburl']}/usercp.php" class="btn btn-sm btn-success" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="{$lang->welcome_usercp}"><i class="fa fa-user"></i><span class="hidden-xs"> {$lang->welcome_usercp}</span></a>]]></template>
 		<template name="htmldoctype" version="120"><![CDATA[<!DOCTYPE html>]]></template>
 		<template name="index" version="1838"><![CDATA[<html>
 <head>
@@ -5924,12 +5975,6 @@ $(".forumjump").on('change', function() {
 
 	<div class="col-sm-12 text-center stat-card-row">
 	{$forumstats}
-	<span class="smalltext">
-{$lang->stats_posts_threads}<br />
-{$lang->stats_numusers}<br />
-{$lang->stats_newestuser}<br />
-{$lang->stats_mostonline}
-</span>
 	</div>
 	
 </div>]]></template>
@@ -5988,6 +6033,9 @@ time: 1000 // the speed time in ms
 <input type="text" class="textbox" name="username" size="30" value="{$username}" />
 </div>
 </div>]]></template>
+		<template name="logincomplate" version="1838"><![CDATA[<ul class="nav navbar-nav navbar-right">
+	<li class="nav-forums"><a class="logoutnav" style="color: #fff;background: transparent;border: none;" href="{$mybb->settings['bburl']}/member.php?action=logout&amp;logoutkey={$mybb->user['logoutkey']}" class="register btn btn-sm btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="{$lang->welcome_logout}"><i class="fa fa-sign-out"></i><span class="hidden-xs"> {$lang->welcome_logout}</span></a></li>
+	</ul>]]></template>
 		<template name="managegroup" version="1806"><![CDATA[<html>
 <head>
 <title>{$mybb->settings['bbname']} - {$lang->members_of}</title>
@@ -6235,6 +6283,368 @@ if(use_xmlhttprequest == "1")
 		<template name="managegroup_user_checkbox" version="1823"><![CDATA[<div class="position_absolute managegroupbit_checkbox">
 	<input type="checkbox" class="checkbox" name="removeuser[{$user['uid']}]" value="{$user['uid']}" {$disabled} />
 </div>]]></template>
+		<template name="memberlist" version="1838"><![CDATA[<html>
+<head>
+<title>{$mybb->settings['bbname']} - {$lang->member_list}</title>
+{$headerinclude}
+ <link rel="stylesheet" href="{$mybb->asset_url}/jscripts/select2/select2.css">
+<script src="{$mybb->asset_url}/jscripts/select2/select2.min.js"></script>
+
+</head>
+<body>
+{$header}
+
+{$multipage}<br class="clear" /><br />
+<div class="tborder memberlist_table">
+
+<div class="thead">{$lang->member_list}</div>
+  
+<div class="tcat rowbit">
+
+<span class="memberlistbit_main threadbit_main" data-width="35%">
+  
+  
+<span class="memberlistbit_avatar align_center">{$lang->avatar}</span>
+  
+<span class="memberlistbit_username"><a href="{$sorturl}&amp;sort=username&amp;order={$oppsortnext}">{$lang->username}</a></span>  
+  
+  
+</span>  
+  
+
+<span class="memberlistbit_posts align_center threadbit_stats" data-width="15%"><a href="{$sorturl}&amp;sort=postnum&amp;order={$oppsortnext}">{$lang->posts}</a></span>  
+  
+<span class="memberlistbit_threads align_center  threadbit_stats" data-width="15%"><a href="{$sorturl}&amp;sort=threadnum&amp;order={$oppsortnext}">{$lang->threads}</a></span>  
+  
+   
+<span class="memberlistbit_joined align_center  threadbit_stats hidden-xs"  data-width="20%"><a href="{$sorturl}&amp;sort=regdate&amp;order={$oppsortnext}">{$lang->joined}</a></span>  
+  
+<span class="memberlistbit_lastvisit align_center  threadbit_stats hidden-xs" data-width="20%"><a href="{$sorturl}&amp;sort=lastvisit&amp;order={$oppsortnext}">{$lang->lastvisit}</a></span>  
+  
+
+</div>
+  
+{$users}
+
+<div class="tfoot align_center">
+	
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->a}">{$lang->a}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->b}">{$lang->b}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->c}">{$lang->c}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->d}">{$lang->d}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->e}">{$lang->e}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->f}">{$lang->f}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->g}">{$lang->g}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->h}">{$lang->h}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->i}">{$lang->i}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->j}">{$lang->j}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->k}">{$lang->k}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->l}">{$lang->l}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->m}">{$lang->m}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->n}">{$lang->n}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->o}">{$lang->o}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->p}">{$lang->p}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->q}">{$lang->q}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->r}">{$lang->r}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->s}">{$lang->s}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->t}">{$lang->t}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->u}">{$lang->u}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->v}">{$lang->v}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->w}">{$lang->w}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->x}">{$lang->x}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->y}">{$lang->y}</a>
+		<a href="memberlist.php?username_match=begins&amp;username={$lang->z}">{$lang->z}</a>
+	</div>
+  
+  
+</div>
+  
+  
+  <br />
+{$multipage}<br class="clear" />
+  
+<br />
+  
+<form method="post" action="memberlist.php">
+<div class="tborder">
+
+<div class="thead">
+
+		<a class="smalltext float_right" href="memberlist.php?action=search">{$lang->advanced_search}</a>
+
+{$lang->search_members}
+</div>
+
+
+<div class="trow1 search_row rowbit">
+
+<div data-width="35%">
+
+<div class="rowbit">
+<div class="formbit_label tcat" data-width="20%"><label for="username">{$lang->username}</label></div>
+<div class="formbit_field" data-width="80%">
+	{$lang->exactly}<br />
+	<input type="text" class="textbox" name="username" id="username" value="{$search_username}" /></div>
+</div>
+
+</div>
+<div data-width="30%">
+  
+<div class="rowbit">
+<div class="formbit_label tcat" data-width="20%"><label for="website">{$lang->website}</label></div>
+<div class="formbit_field" data-width="80%">
+	{$lang->contains}<br />
+	<input type="text" class="textbox" name="website" id="website" value="{$search_website}" /></div>
+</div>
+
+</div>
+<div data-width="35%">
+
+<div class="rowbit">
+<div class="formbit_label tcat" data-width="20%"><label for="sort">{$lang->sort_by}</label></div>
+<div class="formbit_field" data-width="80%">
+	<input type="radio" class="radio" name="order" id="order_asc" value="ascending"{$order_check['ascending']} /> <label for="order_asc">{$lang->order_asc}</label> <input type="radio" class="radio" name="order" id="order_desc" value="descending"{$order_check['descending']} /> <label for="order_desc">{$lang->order_desc}</label>
+	<br />
+	<select name="sort" id="sort">
+		<option value="username"{$sort_selected['username']}>{$lang->sort_by_username}</option>
+		<option value="regdate"{$sort_selected['regdate']}>{$lang->sort_by_regdate}</option>
+		<option value="lastvisit"{$sort_selected['lastvisit']}>{$lang->sort_by_lastvisit}</option>
+		<option value="postnum"{$sort_selected['postnum']}>{$lang->sort_by_posts}</option>
+		<option value="threadnum"{$sort_selected['threadnum']}>{$lang->sort_by_threads}</option>
+		<option value="referrals"{$sort_selected['referrals']}>{$lang->sort_by_referrals}</option>
+	</select>
+</div>
+</div>
+
+
+</div>
+
+
+</div>
+
+  
+  
+  
+ </div>
+<div class="align_center"><br /><input type="submit" class="button" name="submit" value="{$lang->search}" /></div>
+</form> 
+
+  
+<script type="text/javascript">
+<!--
+if(use_xmlhttprequest == "1")
+{
+	MyBB.select2();
+	$("#username").select2({
+		placeholder: "{$lang->search_user}",
+		minimumInputLength: 2,
+		multiple: false,
+		allowClear: true,
+		ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
+			url: "xmlhttp.php?action=get_users",
+			dataType: 'json',
+			data: function (term, page) {
+				return {
+					query: term, // search term
+				};
+			},
+			results: function (data, page) { // parse the results into the format expected by Select2.
+				// since we are using custom formatting functions we do not need to alter remote JSON data
+				return {results: data};
+			}
+		},
+		initSelection: function(element, callback) {
+			var value = $(element).val();
+			if (value !== "") {
+				callback({
+					id: value,
+					text: value
+				});
+			}
+		},
+       // Allow the user entered text to be selected as well
+       createSearchChoice:function(term, data) {
+			if ( $(data).filter( function() {
+				return this.text.localeCompare(term)===0;
+			}).length===0) {
+				return {id:term, text:term};
+			}
+		},
+	});
+	
+	$('[for=username]').on('click', function(){
+		$("#username").select2('open');
+		return false;
+	});
+	
+}
+// -->
+</script> 
+  
+  {$footer}
+</body>
+</html>]]></template>
+		<template name="memberlist_error" version="1800"><![CDATA[
+<div class="trow1">{$lang->error_no_members}</div>
+]]></template>
+		<template name="memberlist_orderarrow" version="1800"><![CDATA[<span class="smalltext">[<a href="{$sorturl}&amp;sort={$sort}&amp;order={$oppsortnext}">{$oppsort}</a>]</span>]]></template>
+		<template name="memberlist_referrals" version="1702"><![CDATA[<span class="memberlistbit_referrals"><a href="{$sorturl}&amp;sort=referrals&amp;order={$oppsortnext}">{$lang->referrals}</a></span>]]></template>
+		<template name="memberlist_referrals_bit" version="1600"><![CDATA[<div class="{$alt_bg}">{$user['referrals']}</div>]]></template>
+		<template name="memberlist_search" version="1823"><![CDATA[<html>
+<head>
+<title>{$mybb->settings['bbname']} - {$lang->search_member_list}</title>
+{$headerinclude}
+</head>
+<body>
+{$header}
+<form method="post" action="memberlist.php">
+<div class="tborder">
+
+<div class="thead">{$lang->search_member_list}</div>
+
+<div class="trow1 rowbit">
+<div class="formbit_label align_right" data-width="20%"><label for="username">{$lang->username}</label></div>
+<div class="formbit_field" data-width="80%">	<select name="username_match">
+			<option value="begins">{$lang->begins_with}</option>
+			<option value="contains">{$lang->username_contains}</option>
+			<option value="exact">{$lang->username_exact}</option>
+		</select>
+		&nbsp;
+		<input type="text" class="textbox" name="username" id="username" />
+	</div>
+</div>
+	
+<div class="trow1 rowbit">
+<div class="formbit_label align_right" data-width="20%"><label for="website">{$lang->search_website}</label></div>
+<div class="formbit_field" data-width="80%"><input type="text" class="textbox" name="website" id="website" /></div>
+</div>
+	
+{$contact_fields['skype']}
+{$contact_fields['google']}
+{$contact_fields['icq']}
+
+<div class="trow1 mediumtext">{$lang->search_options}</div>
+
+<div class="trow1 rowbit">
+<div class="formbit_label align_right" data-width="20%"><label for="sort">{$lang->sort_by}</label></div>
+<div class="formbit_field" data-width="80%">
+	<select name="sort" id="sort">
+			<option value="username">{$lang->sort_by_username}</option>
+			<option value="regdate">{$lang->sort_by_regdate}</option>
+			<option value="lastvisit">{$lang->sort_by_lastvisit}</option>
+			<option value="postnum">{$lang->sort_by_posts}</option>
+			<option value="threadnum">{$lang->sort_by_threads}</option>
+			{$referrals_option}
+		</select> 
+		<input type="radio" class="radio" name="order" id="order_asc" value="asc" /> <label for="order_asc">{$lang->order_asc}</label> <input type="radio" class="radio" name="order" id="order_desc" value="desc" checked="checked" /> <label for="order_desc">{$lang->order_desc}</label>
+		</div>
+</div>
+
+  
+<div class="trow1 rowbit">
+<div class="formbit_label align_right" data-width="20%"><label for="perpage">{$lang->per_page}</label></div>
+<div class="formbit_field" data-width="80%">	<input type="text" class="textbox" size="4" name="perpage" id="perpage" value="15" /></div>
+</div>
+
+  
+</div>
+<div><br /><input type="submit" class="button" name="submit" value="{$lang->search}" /></div>
+</form>
+{$footer}
+  
+<link rel="stylesheet" href="{$mybb->asset_url}/jscripts/select2/select2.css?ver=1807"> 
+<script src="{$mybb->asset_url}/jscripts/select2/select2.min.js?ver=1806"></script>
+<script type="text/javascript">
+<!--
+if(use_xmlhttprequest == "1")
+{
+	MyBB.select2();
+	$("#username").select2({
+		placeholder: "{$lang->search_user}",
+		minimumInputLength: 2,
+		multiple: false,
+		allowClear: true,
+		ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
+			url: "xmlhttp.php?action=get_users",
+			dataType: 'json',
+			data: function (term, page) {
+				return {
+					query: term, // search term
+				};
+			},
+			results: function (data, page) { // parse the results into the format expected by Select2.
+				// since we are using custom formatting functions we do not need to alter remote JSON data
+				return {results: data};
+			}
+		},
+		initSelection: function(element, callback) {
+			var value = $(element).val();
+			if (value !== "") {
+				callback({
+					id: value,
+					text: value
+				});
+			}
+		},
+       // Allow the user entered text to be selected as well
+       createSearchChoice:function(term, data) {
+			if ( $(data).filter( function() {
+				return this.text.localeCompare(term)===0;
+			}).length===0) {
+				return {id:term, text:term};
+			}
+		},
+	});
+
+  	$('[for=username]').on('click', function(){
+		$("#username").select2('open');
+		return false;
+	});
+}
+// -->
+</script>
+  
+</body>
+</html>]]></template>
+		<template name="memberlist_search_contact_field" version="1822"><![CDATA[<div class="trow1 rowbit">
+<div class="formbit_label align_right" data-width="20%"><strong><label for="{$field}">{$lang_string}</label></strong></div>
+<div class="formbit_field" data-width="80%"><input type="text" class="textbox" name="{$field}" id="{$field}" /></div>
+</div>]]></template>
+		<template name="memberlist_user" version="1838"><![CDATA[<div class="trow1 rowbit">
+
+<div class="memberlistbit_main" data-width="35%">
+
+<div class="memberlistbit_avatar">{$user['avatar']}</div>
+  
+<div class="memberlistbit_username">{$user['profilelink']}
+  
+<div class="smalltext">
+	{$user['usertitle']}<br />
+	{$usergroup['groupimage']}
+	{$user['userstars']}
+</div>
+  
+</div>  
+  
+</div>  
+  
+ 
+  
+<div class="memberlistbit_posts align_center" data-width="15%" data-lang="{$lang->posts}">{$user['postnum']}</div>  
+  
+<div class="memberlistbit_threads align_center" data-width="15%" data-lang="{$lang->threads}">{$user['threadnum']}</div>  
+  
+      
+<div class="memberlistbit_joined align_center hidden-xs" data-width="20%" data-lang="{$lang->joined}">{$user['regdate']}</div>  
+  
+<div class="memberlistbit_lastvisit align_center hidden-xs" data-width="20%" data-lang="{$lang->lastvisit}">{$user['lastvisit']}</div>  
+  
+
+  
+</div>]]></template>
+		<template name="memberlist_user_avatar" version="1800"><![CDATA[<img src="{$useravatar['image']}" alt="" {$useravatar['width_height']} />]]></template>
+		<template name="memberlist_user_groupimage" version="1400"><![CDATA[<img src="{$usergroup['image']}" alt="{$usergroup['title']}" title="{$usergroup['title']}" />]]></template>
+		<template name="memberlist_user_userstar" version="1800"><![CDATA[<img src="{$starimage}" alt="*" />]]></template>
 		<template name="member_activate" version="1702"><![CDATA[<html>
 <head>
 <title>{$mybb->settings['bbname']} - {$lang->account_activation}</title>
@@ -6710,91 +7120,142 @@ if(use_xmlhttprequest == "1")
 <div class="formbit_field" data-width="80%"><a href="{$memprofile['website']}" target="_blank">{$memprofile['website']}</a></div>
 </div>]]></template>
 		<template name="member_register" version="1838"><![CDATA[<html>
-
 <head>
-    <title>{$mybb->settings['bbname']} - {$lang->registration}</title>
-    {$headerinclude}
-    <script src="{$mybb->asset_url}/jscripts/validate/jquery.validate.min.js?ver=1821"></script>
+<title>{$mybb->settings['bbname']} - {$lang->registration}</title>
+{$headerinclude}
+<script type="text/javascript" src="{$mybb->asset_url}/jscripts/validate/jquery.validate.min.js?ver=1821"></script>
 </head>
-
 <body>
-    {$header}
-    <form action="member.php" method="post" id="registration_form"><input type="text" style="visibility: hidden;"
-            value="" name="regcheck1" /><input type="text" style="visibility: hidden;" value="true" name="regcheck2" />
-        {$regerrors}
-        <div class="tborder">
-
-            <div class="thead">{$lang->registration}</div>
-
-            <div class="trow1 row">
-                <div class="col-md-12">
-
-                    <legend>{$lang->account_details}</legend>
-
-                    <div class="rowbit">
-                        
-                        <div class="formbit_field" data-width="100%">
-							<span class="input-icon"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
-							<input type="text" class="form-control"
-                                name="username" id="username" value="{$username}" placeholder="Enter Username" />
-						
-						</div>
-                    </div>
-
-                    {$passboxes}
-
-                    <div class="rowbit">
-                        
-                        <div class="formbit_field" data-width="100%">
-							<span class="input-icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-							<input type="text" class="form-control" name="email"
-                                id="email" maxlength="50" value="{$email}" placeholder="Enter Email Address" /></div>
-                    </div>
-
-
-                    <div class="rowbit">
-                        
-                        <div class="formbit_field" data-width="100%">
-							<span class="input-icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-							<input type="text" class="form-control"
-                                name="email2" id="email2" maxlength="50" value="{$email2}" placeholder="Confirm Email Address" />
-
-                            <div id="email_status">&nbsp;</div>
-
-                        </div>
-                    </div>
-
-
-
-                    {$referrer}
-
-                    {$hiddencaptcha}
-
-                    {$requiredfields}
-                    {$customfields}
-                    {$regimage}
-                    {$questionbox}
-
-                </div>
-            </div>
-        </div>
-        <br />
-        <div class="align_center">
-            <input type="hidden" name="regtime" value="{$time}" />
-            <input type="hidden" name="step" value="registration" />
-            <input type="hidden" name="action" value="do_register" />
-            <input type="submit" class="button" name="regsubmit" value="{$lang->submit_registration}" />
-        </div>
-    </form>
-    {$validator_javascript}
-    <script type="text/javascript" src="{$mybb->asset_url}/jscripts/regvalidator.js?ver=1823"></script>
-    {$footer}
+{$header}
+<form action="member.php" method="post" id="registration_form"><input type="text" style="visibility: hidden;" value="" name="regcheck1" /><input type="text" style="visibility: hidden;" value="true" name="regcheck2" />
+{$regerrors}
+<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
+<tr>
+<td class="thead" colspan="2"><strong>{$lang->registration}</strong></td>
+</tr>
+<tr>
+<td width="50%" class="trow1" valign="top">
+<fieldset class="trow2">
+<legend><strong>{$lang->account_details}</strong></legend>
+<table cellspacing="0" cellpadding="{$theme['tablespace']}" width="100%">
+<tr>
+<td colspan="2"><span class="smalltext"><label for="username">{$lang->username}</label></span></td>
+</tr>
+<tr>
+<td colspan="2"><input type="text" class="textbox" name="username" id="username" style="width: 100%" value="{$username}" /></td>
+</tr>
+{$passboxes}
+<tr>
+<td width="50%" valign="top"><span class="smalltext"><label for="email">{$lang->email}</label></span></td>
+<td width="50%" valign="top"><span class="smalltext"><label for="email2">{$lang->confirm_email}</label></span></td>
+</tr>
+<tr>
+<td width="50%" valign="top"><input type="text" class="textbox" name="email" id="email"  maxlength="50" value="{$email}" /></td>
+<td width="50%" valign="top"><input type="text" class="textbox" name="email2" id="email2"  maxlength="50" value="{$email2}" /></td>
+</tr>
+<tr>
+	<td colspan="2" style="display: none;" id="email_status">&nbsp;</td>
+</tr>
+{$hiddencaptcha}
+</table>
+</fieldset>
+{$requiredfields}
+{$customfields}
+{$referrer}
+{$regimage}
+{$questionbox}
+</td>
+<td width="50%" class="trow1" valign="top">
+<fieldset class="trow2">
+<legend><strong>{$lang->account_prefs}</strong></legend>
+<table cellspacing="0" cellpadding="{$theme['tablespace']}" width="100%">
+<tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="allownotices" id="allownotices" value="1" {$allownoticescheck} /></td>
+<td valign="top"><span class="smalltext"><label for="allownotices">{$lang->allow_notices}</label></span></td>
+</tr>
+<tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="hideemail" id="hideemail" value="1" {$hideemailcheck} /></td>
+<td valign="top"><span class="smalltext"><label for="hideemail">{$lang->hide_email}</label></span></td>
+</tr>
+<tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="receivepms" id="receivepms" value="1" {$receivepmscheck} /></td>
+<td valign="top"><span class="smalltext"><label for="receivepms">{$lang->receive_pms}</label></span></td>
+</tr>
+<tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="pmnotice" id="pmnotice" value="1"{$pmnoticecheck} /></td>
+<td valign="top"><span class="smalltext"><label for="pmnotice">{$lang->pm_notice}</label></span></td>
+</tr>
+<tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="pmnotify" id="pmnotify" value="1" {$pmnotifycheck} /></td>
+<td valign="top"><span class="smalltext"><label for="pmnotify">{$lang->email_notify_newpm}</label></span></td>
+</tr>
+<tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="invisible" id="invisible" value="1" {$invisiblecheck} /></td>
+<td valign="top"><span class="smalltext"><label for="invisible">{$lang->invisible_mode}</label></span></td>
+</tr>
+<tr>
+<td colspan="2"><span class="smalltext"><label for="subscriptionmethod">{$lang->subscription_method}</label></span></td>
+</tr>
+<tr>
+<td colspan="2">
+	<select name="subscriptionmethod" id="subscriptionmethod">
+		<option value="0" {$no_auto_subscribe_selected}>{$lang->no_auto_subscribe}</option>
+		<option value="1" {$no_subscribe_selected}>{$lang->no_subscribe}</option>
+		<option value="2" {$instant_email_subscribe_selected}>{$lang->instant_email_subscribe}</option>
+		<option value="3" {$instant_pm_subscribe_selected}>{$lang->instant_pm_subscribe}</option>
+	</select>
+</td>
+</tr>
+</table>
+</fieldset>
+<br />
+<fieldset class="trow2">
+<legend><strong><label for="timezone">{$lang->time_offset}</label></strong></legend>
+<table cellspacing="0" cellpadding="{$theme['tablespace']}" width="100%">
+<tr>
+<td><span class="smalltext">{$lang->time_offset_desc}</span></td>
+</tr>
+<tr>
+<td>{$tzselect}</td>
+</tr>
+<tr>
+<td><span class="smalltext">{$lang->dst_correction}</span></td>
+</tr>
+<tr>
+<td>
+	<select name="dstcorrection">
+		<option value="2" {$dst_auto_selected}>{$lang->dst_correction_auto}</option>
+		<option value="1" {$dst_enabled_selected}>{$lang->dst_correction_enabled}</option>
+		<option value="0" {$dst_disabled_selected}>{$lang->dst_correction_disabled}</option>
+	</select>
+</td>
+</tr>
+</table>
+</fieldset>
+{$boardlanguage}
+</td>
+</tr>
+</table>
+<br />
+<div align="center">
+<input type="hidden" name="regtime" value="{$time}" />
+<input type="hidden" name="step" value="registration" />
+<input type="hidden" name="action" value="do_register" />
+<input type="submit" class="button" name="regsubmit" value="{$lang->submit_registration}" />
+</div>
+</form>
+{$validator_javascript}
+<script type="text/javascript" src="{$mybb->asset_url}/jscripts/regvalidator.js?ver=1823"></script>
+{$footer}
 </body>
-
 </html>]]></template>
-		<template name="member_register_additionalfields" version="1702"><![CDATA[<div class="trow1 mediumtext">{$lang->additional_info}</div>
-
-{$customfields}]]></template>
+		<template name="member_register_additionalfields" version="1800"><![CDATA[<br />
+<fieldset class="trow2">
+<legend><strong>{$lang->additional_info}</strong></legend>
+<table cellspacing="0" cellpadding="{$theme['tablespace']}">
+{$customfields}
+</table>
+</fieldset>]]></template>
 		<template name="member_register_agreement" version="1702"><![CDATA[<html>
 <head>
 <title>{$mybb->settings['bbname']} - {$lang->agreement}</title>
@@ -6802,7 +7263,7 @@ if(use_xmlhttprequest == "1")
 </head>
 <body>
 {$header}
-<br />
+
 <form action="member.php" method="post">
 <div class="tborder">
 
@@ -6811,6 +7272,7 @@ if(use_xmlhttprequest == "1")
 {$coppa_agreement}
 
 <div class="trow1">
+
 <p>{$lang->agreement_1}</p>
 <p>{$lang->agreement_2}</p>
 <p>{$lang->agreement_3}</p>
@@ -6847,7 +7309,6 @@ if(use_xmlhttprequest == "1")
 </head>
 <body>
 {$header}
-<br />
 <form action="member.php" method="post">
 <div class="tborder">
 
@@ -6939,21 +7400,17 @@ if(use_xmlhttprequest == "1")
 {$langoptions}
 </select></div>
 </div>]]></template>
-		<template name="member_register_password" version="1838"><![CDATA[<div class="rowbit">
-<div class="formbit_field" data-width="100%">
-<span class="input-icon"><i class="fa fa-key" aria-hidden="true"></i></span>
-<input type="password" class="form-control" name="password" id="password" placeholder="Enter Password" /></div>
-</div>
-  
-
-<div class="rowbit">
-<div class="formbit_field" data-width="100%">
-<span class="input-icon"><i class="fa fa-key" aria-hidden="true"></i></span>	
-<input type="password" class="form-control" name="password2" id="password2" placeholder="Confirm Password" />
-<div id="password_status">&nbsp;</div>
-  
-</div>
-</div>]]></template>
+		<template name="member_register_password" version="1838"><![CDATA[<tr>
+<td width="50%" valign="top"><span class="smalltext">{$lang->password}</span></td>
+<td width="50%" valign="top"><span class="smalltext">{$lang->confirm_password}</span></td>
+</tr>
+<tr>
+<td width="50%" valign="top"><input type="password" class="textbox" name="password" id="password"/></td>
+<td width="50%" valign="top"><input type="password" class="textbox" name="password2" id="password2" style="width: 100%" /></td>
+</tr>
+<tr>
+	<td colspan="2" style="display: none;" id="password_status">&nbsp;</td>
+</tr>]]></template>
 		<template name="member_register_question" version="1837"><![CDATA[<legend>{$lang->security_question}</legend>
 <div class="rowbit">
 <div class="formbit_label none align_right" data-width="20%">{$lang->security_question}</div>
@@ -6978,11 +7435,11 @@ if(use_xmlhttprequest == "1")
 
 </div>
 </div>]]></template>
-		<template name="member_register_referrer" version="1837"><![CDATA[<legend>{$lang->referrer}</legend>
+		<template name="member_register_referrer" version="1838"><![CDATA[<legend>{$lang->referrer}</legend>
 <div class="trow1 rowbit">
-<div class="formbit_label align_right none hide" data-width="20%">{$lang->referrer}</div>
 <div class="formbit_field" data-width="80%"><input type="text" class="textbox" name="referrername" id="referrer" value="{$referrername}"  style="width: 100%;" /><br /><span class="smalltext"><label for="referrer">{$lang->referrer_desc}</label></span>
-	
+	<br>
+<div class="formbit_label align_right none hide" data-width="20%">{$lang->referrer}</div>
 <link rel="stylesheet" href="{$mybb->asset_url}/jscripts/select2/select2.css?ver=1806">
 	<script src="{$mybb->asset_url}/jscripts/select2/select2.min.js"></script>
 <script>
@@ -7153,368 +7610,6 @@ if(use_xmlhttprequest == "1")
 </div>
 
 </div>]]></template>
-		<template name="memberlist" version="1838"><![CDATA[<html>
-<head>
-<title>{$mybb->settings['bbname']} - {$lang->member_list}</title>
-{$headerinclude}
- <link rel="stylesheet" href="{$mybb->asset_url}/jscripts/select2/select2.css">
-<script src="{$mybb->asset_url}/jscripts/select2/select2.min.js"></script>
-
-</head>
-<body>
-{$header}
-
-{$multipage}<br class="clear" /><br />
-<div class="tborder memberlist_table">
-
-<div class="thead">{$lang->member_list}</div>
-  
-<div class="tcat rowbit">
-
-<span class="memberlistbit_main threadbit_main" data-width="35%">
-  
-  
-<span class="memberlistbit_avatar align_center">{$lang->avatar}</span>
-  
-<span class="memberlistbit_username"><a href="{$sorturl}&amp;sort=username&amp;order={$oppsortnext}">{$lang->username}</a></span>  
-  
-  
-</span>  
-  
-
-<span class="memberlistbit_posts align_center threadbit_stats" data-width="15%"><a href="{$sorturl}&amp;sort=postnum&amp;order={$oppsortnext}">{$lang->posts}</a></span>  
-  
-<span class="memberlistbit_threads align_center  threadbit_stats" data-width="15%"><a href="{$sorturl}&amp;sort=threadnum&amp;order={$oppsortnext}">{$lang->threads}</a></span>  
-  
-   
-<span class="memberlistbit_joined align_center  threadbit_stats hidden-xs"  data-width="20%"><a href="{$sorturl}&amp;sort=regdate&amp;order={$oppsortnext}">{$lang->joined}</a></span>  
-  
-<span class="memberlistbit_lastvisit align_center  threadbit_stats hidden-xs" data-width="20%"><a href="{$sorturl}&amp;sort=lastvisit&amp;order={$oppsortnext}">{$lang->lastvisit}</a></span>  
-  
-
-</div>
-  
-{$users}
-
-<div class="tfoot align_center">
-	
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->a}">{$lang->a}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->b}">{$lang->b}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->c}">{$lang->c}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->d}">{$lang->d}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->e}">{$lang->e}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->f}">{$lang->f}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->g}">{$lang->g}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->h}">{$lang->h}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->i}">{$lang->i}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->j}">{$lang->j}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->k}">{$lang->k}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->l}">{$lang->l}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->m}">{$lang->m}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->n}">{$lang->n}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->o}">{$lang->o}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->p}">{$lang->p}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->q}">{$lang->q}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->r}">{$lang->r}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->s}">{$lang->s}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->t}">{$lang->t}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->u}">{$lang->u}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->v}">{$lang->v}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->w}">{$lang->w}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->x}">{$lang->x}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->y}">{$lang->y}</a>
-		<a href="memberlist.php?username_match=begins&amp;username={$lang->z}">{$lang->z}</a>
-	</div>
-  
-  
-</div>
-  
-  
-  <br />
-{$multipage}<br class="clear" />
-  
-<br />
-  
-<form method="post" action="memberlist.php">
-<div class="tborder">
-
-<div class="thead">
-
-		<a class="smalltext float_right" href="memberlist.php?action=search">{$lang->advanced_search}</a>
-
-{$lang->search_members}
-</div>
-
-
-<div class="trow1 search_row rowbit">
-
-<div data-width="35%">
-
-<div class="rowbit">
-<div class="formbit_label tcat" data-width="20%"><label for="username">{$lang->username}</label></div>
-<div class="formbit_field" data-width="80%">
-	{$lang->exactly}<br />
-	<input type="text" class="textbox" name="username" id="username" value="{$search_username}" /></div>
-</div>
-
-</div>
-<div data-width="30%">
-  
-<div class="rowbit">
-<div class="formbit_label tcat" data-width="20%"><label for="website">{$lang->website}</label></div>
-<div class="formbit_field" data-width="80%">
-	{$lang->contains}<br />
-	<input type="text" class="textbox" name="website" id="website" value="{$search_website}" /></div>
-</div>
-
-</div>
-<div data-width="35%">
-
-<div class="rowbit">
-<div class="formbit_label tcat" data-width="20%"><label for="sort">{$lang->sort_by}</label></div>
-<div class="formbit_field" data-width="80%">
-	<input type="radio" class="radio" name="order" id="order_asc" value="ascending"{$order_check['ascending']} /> <label for="order_asc">{$lang->order_asc}</label> <input type="radio" class="radio" name="order" id="order_desc" value="descending"{$order_check['descending']} /> <label for="order_desc">{$lang->order_desc}</label>
-	<br />
-	<select name="sort" id="sort">
-		<option value="username"{$sort_selected['username']}>{$lang->sort_by_username}</option>
-		<option value="regdate"{$sort_selected['regdate']}>{$lang->sort_by_regdate}</option>
-		<option value="lastvisit"{$sort_selected['lastvisit']}>{$lang->sort_by_lastvisit}</option>
-		<option value="postnum"{$sort_selected['postnum']}>{$lang->sort_by_posts}</option>
-		<option value="threadnum"{$sort_selected['threadnum']}>{$lang->sort_by_threads}</option>
-		<option value="referrals"{$sort_selected['referrals']}>{$lang->sort_by_referrals}</option>
-	</select>
-</div>
-</div>
-
-
-</div>
-
-
-</div>
-
-  
-  
-  
- </div>
-<div class="align_center"><br /><input type="submit" class="button" name="submit" value="{$lang->search}" /></div>
-</form> 
-
-  
-<script type="text/javascript">
-<!--
-if(use_xmlhttprequest == "1")
-{
-	MyBB.select2();
-	$("#username").select2({
-		placeholder: "{$lang->search_user}",
-		minimumInputLength: 2,
-		multiple: false,
-		allowClear: true,
-		ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
-			url: "xmlhttp.php?action=get_users",
-			dataType: 'json',
-			data: function (term, page) {
-				return {
-					query: term, // search term
-				};
-			},
-			results: function (data, page) { // parse the results into the format expected by Select2.
-				// since we are using custom formatting functions we do not need to alter remote JSON data
-				return {results: data};
-			}
-		},
-		initSelection: function(element, callback) {
-			var value = $(element).val();
-			if (value !== "") {
-				callback({
-					id: value,
-					text: value
-				});
-			}
-		},
-       // Allow the user entered text to be selected as well
-       createSearchChoice:function(term, data) {
-			if ( $(data).filter( function() {
-				return this.text.localeCompare(term)===0;
-			}).length===0) {
-				return {id:term, text:term};
-			}
-		},
-	});
-	
-	$('[for=username]').on('click', function(){
-		$("#username").select2('open');
-		return false;
-	});
-	
-}
-// -->
-</script> 
-  
-  {$footer}
-</body>
-</html>]]></template>
-		<template name="memberlist_error" version="1800"><![CDATA[
-<div class="trow1">{$lang->error_no_members}</div>
-]]></template>
-		<template name="memberlist_orderarrow" version="1800"><![CDATA[<span class="smalltext">[<a href="{$sorturl}&amp;sort={$sort}&amp;order={$oppsortnext}">{$oppsort}</a>]</span>]]></template>
-		<template name="memberlist_referrals" version="1702"><![CDATA[<span class="memberlistbit_referrals"><a href="{$sorturl}&amp;sort=referrals&amp;order={$oppsortnext}">{$lang->referrals}</a></span>]]></template>
-		<template name="memberlist_referrals_bit" version="1600"><![CDATA[<div class="{$alt_bg}">{$user['referrals']}</div>]]></template>
-		<template name="memberlist_search" version="1823"><![CDATA[<html>
-<head>
-<title>{$mybb->settings['bbname']} - {$lang->search_member_list}</title>
-{$headerinclude}
-</head>
-<body>
-{$header}
-<form method="post" action="memberlist.php">
-<div class="tborder">
-
-<div class="thead">{$lang->search_member_list}</div>
-
-<div class="trow1 rowbit">
-<div class="formbit_label align_right" data-width="20%"><label for="username">{$lang->username}</label></div>
-<div class="formbit_field" data-width="80%">	<select name="username_match">
-			<option value="begins">{$lang->begins_with}</option>
-			<option value="contains">{$lang->username_contains}</option>
-			<option value="exact">{$lang->username_exact}</option>
-		</select>
-		&nbsp;
-		<input type="text" class="textbox" name="username" id="username" />
-	</div>
-</div>
-	
-<div class="trow1 rowbit">
-<div class="formbit_label align_right" data-width="20%"><label for="website">{$lang->search_website}</label></div>
-<div class="formbit_field" data-width="80%"><input type="text" class="textbox" name="website" id="website" /></div>
-</div>
-	
-{$contact_fields['skype']}
-{$contact_fields['google']}
-{$contact_fields['icq']}
-
-<div class="trow1 mediumtext">{$lang->search_options}</div>
-
-<div class="trow1 rowbit">
-<div class="formbit_label align_right" data-width="20%"><label for="sort">{$lang->sort_by}</label></div>
-<div class="formbit_field" data-width="80%">
-	<select name="sort" id="sort">
-			<option value="username">{$lang->sort_by_username}</option>
-			<option value="regdate">{$lang->sort_by_regdate}</option>
-			<option value="lastvisit">{$lang->sort_by_lastvisit}</option>
-			<option value="postnum">{$lang->sort_by_posts}</option>
-			<option value="threadnum">{$lang->sort_by_threads}</option>
-			{$referrals_option}
-		</select> 
-		<input type="radio" class="radio" name="order" id="order_asc" value="asc" /> <label for="order_asc">{$lang->order_asc}</label> <input type="radio" class="radio" name="order" id="order_desc" value="desc" checked="checked" /> <label for="order_desc">{$lang->order_desc}</label>
-		</div>
-</div>
-
-  
-<div class="trow1 rowbit">
-<div class="formbit_label align_right" data-width="20%"><label for="perpage">{$lang->per_page}</label></div>
-<div class="formbit_field" data-width="80%">	<input type="text" class="textbox" size="4" name="perpage" id="perpage" value="15" /></div>
-</div>
-
-  
-</div>
-<div><br /><input type="submit" class="button" name="submit" value="{$lang->search}" /></div>
-</form>
-{$footer}
-  
-<link rel="stylesheet" href="{$mybb->asset_url}/jscripts/select2/select2.css?ver=1807"> 
-<script src="{$mybb->asset_url}/jscripts/select2/select2.min.js?ver=1806"></script>
-<script type="text/javascript">
-<!--
-if(use_xmlhttprequest == "1")
-{
-	MyBB.select2();
-	$("#username").select2({
-		placeholder: "{$lang->search_user}",
-		minimumInputLength: 2,
-		multiple: false,
-		allowClear: true,
-		ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
-			url: "xmlhttp.php?action=get_users",
-			dataType: 'json',
-			data: function (term, page) {
-				return {
-					query: term, // search term
-				};
-			},
-			results: function (data, page) { // parse the results into the format expected by Select2.
-				// since we are using custom formatting functions we do not need to alter remote JSON data
-				return {results: data};
-			}
-		},
-		initSelection: function(element, callback) {
-			var value = $(element).val();
-			if (value !== "") {
-				callback({
-					id: value,
-					text: value
-				});
-			}
-		},
-       // Allow the user entered text to be selected as well
-       createSearchChoice:function(term, data) {
-			if ( $(data).filter( function() {
-				return this.text.localeCompare(term)===0;
-			}).length===0) {
-				return {id:term, text:term};
-			}
-		},
-	});
-
-  	$('[for=username]').on('click', function(){
-		$("#username").select2('open');
-		return false;
-	});
-}
-// -->
-</script>
-  
-</body>
-</html>]]></template>
-		<template name="memberlist_search_contact_field" version="1822"><![CDATA[<div class="trow1 rowbit">
-<div class="formbit_label align_right" data-width="20%"><strong><label for="{$field}">{$lang_string}</label></strong></div>
-<div class="formbit_field" data-width="80%"><input type="text" class="textbox" name="{$field}" id="{$field}" /></div>
-</div>]]></template>
-		<template name="memberlist_user" version="1838"><![CDATA[<div class="trow1 rowbit">
-
-<div class="memberlistbit_main" data-width="35%">
-
-<div class="memberlistbit_avatar">{$user['avatar']}</div>
-  
-<div class="memberlistbit_username">{$user['profilelink']}
-  
-<div class="smalltext">
-	{$user['usertitle']}<br />
-	{$usergroup['groupimage']}
-	{$user['userstars']}
-</div>
-  
-</div>  
-  
-</div>  
-  
- 
-  
-<div class="memberlistbit_posts align_center" data-width="15%" data-lang="{$lang->posts}">{$user['postnum']}</div>  
-  
-<div class="memberlistbit_threads align_center" data-width="15%" data-lang="{$lang->threads}">{$user['threadnum']}</div>  
-  
-      
-<div class="memberlistbit_joined align_center hidden-xs" data-width="20%" data-lang="{$lang->joined}">{$user['regdate']}</div>  
-  
-<div class="memberlistbit_lastvisit align_center hidden-xs" data-width="20%" data-lang="{$lang->lastvisit}">{$user['lastvisit']}</div>  
-  
-
-  
-</div>]]></template>
-		<template name="memberlist_user_avatar" version="1800"><![CDATA[<img src="{$useravatar['image']}" alt="" {$useravatar['width_height']} />]]></template>
-		<template name="memberlist_user_groupimage" version="1400"><![CDATA[<img src="{$usergroup['image']}" alt="{$usergroup['title']}" title="{$usergroup['title']}" />]]></template>
-		<template name="memberlist_user_userstar" version="1800"><![CDATA[<img src="{$starimage}" alt="*" />]]></template>
 		<template name="misc_buddypopup" version="1814"><![CDATA[<div class="modal">
 <div class="tborder">
 			<div class="thead">
@@ -7557,6 +7652,34 @@ if(use_xmlhttprequest == "1")
 {$footer}
 </body>
 </html>]]></template>
+		<template name="misc_helpresults" version="1800"><![CDATA[<html>
+<head>
+<title>{$mybb->settings['bbname']} - {$lang->help_doc_results}</title>
+{$headerinclude}
+</head>
+<body>
+{$header}
+<div class="tborder">
+
+<div class="thead">{$lang->help_doc_results}</div>
+
+
+<div class="tcat"><span class="smalltext">{$lang->document}</span></div>
+
+{$helpdoclist}
+</div>
+{$footer}
+</body>
+</html>]]></template>
+		<template name="misc_helpresults_bit" version="1702"><![CDATA[	<div class="{$bgcolor}">
+		<span class="smalltext">
+          <a href="misc.php?action=help&amp;hid={$helpdoc['hid']}{$highlight}">{$helpdoc['name']}</a><br />
+		</span>
+		<div><div><span class="smalltext">{$prev}</span></div></div>
+	</div>]]></template>
+		<template name="misc_helpresults_noresults" version="1800"><![CDATA[
+	<div class="trow1">{$lang->no_help_results}</div>
+]]></template>
 		<template name="misc_help_helpdoc" version="1800"><![CDATA[<html>
 <head>
 <title>{$mybb->settings['bbname']} - {$lang->help_docs}</title>
@@ -7618,34 +7741,6 @@ if(use_xmlhttprequest == "1")
 <br />]]></template>
 		<template name="misc_help_section_bit" version="1400"><![CDATA[
 <div class="{$altbg}"><a href="misc.php?action=help&amp;hid={$helpdoc['hid']}">{$helpdoc['name']}</a><br /><span class="smalltext">{$helpdoc['description']}</span></div>
-]]></template>
-		<template name="misc_helpresults" version="1800"><![CDATA[<html>
-<head>
-<title>{$mybb->settings['bbname']} - {$lang->help_doc_results}</title>
-{$headerinclude}
-</head>
-<body>
-{$header}
-<div class="tborder">
-
-<div class="thead">{$lang->help_doc_results}</div>
-
-
-<div class="tcat"><span class="smalltext">{$lang->document}</span></div>
-
-{$helpdoclist}
-</div>
-{$footer}
-</body>
-</html>]]></template>
-		<template name="misc_helpresults_bit" version="1702"><![CDATA[	<div class="{$bgcolor}">
-		<span class="smalltext">
-          <a href="misc.php?action=help&amp;hid={$helpdoc['hid']}{$highlight}">{$helpdoc['name']}</a><br />
-		</span>
-		<div><div><span class="smalltext">{$prev}</span></div></div>
-	</div>]]></template>
-		<template name="misc_helpresults_noresults" version="1800"><![CDATA[
-	<div class="trow1">{$lang->no_help_results}</div>
 ]]></template>
 		<template name="misc_imcenter_skype" version="1805"><![CDATA[<div class="modal">
 <div class="tborder">
@@ -8928,9 +9023,6 @@ if(use_xmlhttprequest == "1")
   <span class="inline-block" data-width="20%">{$ip}</span>
   <span class="inline-block">{$subject}</span>
 </div>]]></template>
-		<template name="modcp_ipsearch_result_lastip" version="1800"><![CDATA[{$lang->ipresult_lastip} {$profile_link}]]></template>
-		<template name="modcp_ipsearch_result_post" version="1800"><![CDATA[{$lang->ipresult_post} <a href="{$ipaddress['postlink']}">{$ipaddress['subject']}</a> {$lang->by} {$ipaddress['profilelink']}]]></template>
-		<template name="modcp_ipsearch_result_regip" version="1800"><![CDATA[{$lang->ipresult_regip} {$profile_link}]]></template>
 		<template name="modcp_ipsearch_results" version="1702"><![CDATA[					<div class="tborder">
 						
 							<div class="thead">
@@ -8949,6 +9041,9 @@ if(use_xmlhttprequest == "1")
 					{$multipage}
 					<br />]]></template>
 		<template name="modcp_ipsearch_results_information" version="1804"><![CDATA[<span class="float_right smalltext"><a href="modcp.php?action=iplookup&amp;ipaddress={$ipaddress}" onclick="MyBB.popupWindow('/modcp.php?action=iplookup&ipaddress={$ipaddress_url}&modal=1'); return false;">{$lang->info_on_ip}</a></span>]]></template>
+		<template name="modcp_ipsearch_result_lastip" version="1800"><![CDATA[{$lang->ipresult_lastip} {$profile_link}]]></template>
+		<template name="modcp_ipsearch_result_post" version="1800"><![CDATA[{$lang->ipresult_post} <a href="{$ipaddress['postlink']}">{$ipaddress['subject']}</a> {$lang->by} {$ipaddress['profilelink']}]]></template>
+		<template name="modcp_ipsearch_result_regip" version="1800"><![CDATA[{$lang->ipresult_regip} {$profile_link}]]></template>
 		<template name="modcp_lastattachment" version="1819"><![CDATA[<span class="smalltext">
 <a href="{$attachment['link']}#pid{$attachment['pid']}" data-lastpost-time="">{$attachment['filename']}</a> {$lang->by} {$attachment['profilelink']}
 <br />{$attachment['date']}</span>]]></template>
@@ -9101,7 +9196,6 @@ if(use_xmlhttprequest == "1")
 		<template name="modcp_modlogs_result_post" version="1800"><![CDATA[{$lang->post} <a href="{$logitem['post']}#pid{$logitem['pid']}">{$logitem['psubject']}</a>]]></template>
 		<template name="modcp_modlogs_result_thread" version="1800"><![CDATA[{$lang->thread}: <a href="{$logitem['thread']}" target="_blank">{$logitem['tsubject']}</a><br />]]></template>
 		<template name="modcp_modlogs_user" version="1800"><![CDATA[<option value="{$user['uid']}"{$selected}>{$user['username']}</option>]]></template>
-		<template name="modcp_modqueue_attachment_link" version="1805"><![CDATA[<a href="modcp.php?action=modqueue&amp;type=attachments">{$lang->attachments}</a>]]></template>
 		<template name="modcp_modqueue_attachments" version="1814"><![CDATA[<html>
 <head>
 <title>{$mybb->settings['bbname']} - {$lang->attachments_awaiting_moderation}</title>
@@ -9172,6 +9266,7 @@ if(use_xmlhttprequest == "1")
 		<template name="modcp_modqueue_attachments_empty" version="1400"><![CDATA[
 		<div class="trow1">{$lang->mod_queue_attachments_empty}</div>
 ]]></template>
+		<template name="modcp_modqueue_attachment_link" version="1805"><![CDATA[<a href="modcp.php?action=modqueue&amp;type=attachments">{$lang->attachments}</a>]]></template>
 		<template name="modcp_modqueue_empty" version="1814"><![CDATA[<html>
 <head>
 <title>{$mybb->settings['bbname']} - {$lang->mod_queue}</title>
@@ -9205,7 +9300,6 @@ if(use_xmlhttprequest == "1")
 
 <a href="#" class="mass_approve button" onclick="$('input.radio_approve').each(function(){ $(this).prop('checked', true); }); return false;">{$lang->mark_all_approved}</a>
 </div>]]></template>
-		<template name="modcp_modqueue_post_link" version="1805"><![CDATA[<a href="modcp.php?action=modqueue&amp;type=posts">{$lang->posts}</a>]]></template>
 		<template name="modcp_modqueue_posts" version="1814"><![CDATA[<html>
 <head>
 <title>{$mybb->settings['bbname']} - {$lang->posts_awaiting_moderation}</title>
@@ -9288,7 +9382,7 @@ if(use_xmlhttprequest == "1")
 						{$post['message']}
 					</div>
 				</div>]]></template>
-		<template name="modcp_modqueue_thread_link" version="1805"><![CDATA[<a href="modcp.php?action=modqueue&amp;type=threads">{$lang->threads}</a>]]></template>
+		<template name="modcp_modqueue_post_link" version="1805"><![CDATA[<a href="modcp.php?action=modqueue&amp;type=posts">{$lang->posts}</a>]]></template>
 		<template name="modcp_modqueue_threads" version="1814"><![CDATA[<html>
 <head>
 <title>{$mybb->settings['bbname']} - {$lang->threads_awaiting_moderation}</title>
@@ -9368,6 +9462,7 @@ if(use_xmlhttprequest == "1")
 						{$thread['postmessage']}
 					</div>
 				</div>]]></template>
+		<template name="modcp_modqueue_thread_link" version="1805"><![CDATA[<a href="modcp.php?action=modqueue&amp;type=threads">{$lang->threads}</a>]]></template>
 		<template name="modcp_nav" version="1838"><![CDATA[<div class="row row-offcanvas row-offcanvas-left">
 <div class="col-sm-2 sidebar-offcanvas" id="sidebar">
 <div class="modcp_nav">
@@ -9427,15 +9522,15 @@ $(document).ready(function () {
 		{$nav_ipsearch}</ul>
      </div>]]></template>
 		<template name="modcp_nav_warninglogs" version="1806"><![CDATA[<li><a href="modcp.php?action=warninglogs" class="modcp_nav_item modcp_nav_warninglogs">{$lang->mcp_nav_warninglogs}</a></li>]]></template>
+		<template name="modcp_nobanned" version="1613"><![CDATA[
+		<div class="trow1">{$lang->no_bans_ending}</div>
+]]></template>
 		<template name="modcp_no_announcements_forum" version="1400"><![CDATA[					
 						<div class="trow1">{$lang->no_forum_announcements}</div>
 					]]></template>
 		<template name="modcp_no_announcements_global" version="1400"><![CDATA[					
 						<div class="trow1">{$lang->no_global_announcements}</div>
 					]]></template>
-		<template name="modcp_nobanned" version="1613"><![CDATA[
-		<div class="trow1">{$lang->no_bans_ending}</div>
-]]></template>
 		<template name="modcp_reports" version="1821"><![CDATA[<html>
 <head>
 <title>{$mybb->settings['bbname']} - {$lang->report_center}</title>
@@ -10682,15 +10777,13 @@ if(use_xmlhttprequest == "1")
 </div>]]></template>
 		<template name="mycode_img" version="1823"><![CDATA[<img src="{$url}" loading="lazy" {$width}{$height} alt="{$alt}"{$css_align} class="mycode_img img-responsive" />]]></template>
 		<template name="nav" version="1838"><![CDATA[<div class="navigation">
-{$nav}{$activesep}{$activebit}
+<i class="fa fa-home">{$nav}</i>{$activesep}{$activebit}
 </div>]]></template>
-
-
-		<template name="nav_bit" version="1837"><![CDATA[<a href="{$navbit['url']}">{$navbit['name']}</a>{$sep}]]></template>
-		<template name="nav_bit_active" version="1838"><![CDATA[<h4><i class="fa fa-home" aria-hidden="true"></i> {$navbit['name']}</h4>]]></template>
+		<template name="nav_bit" version="1838"><![CDATA[<a href="{$navbit['url']}" style="font-weight:bolder; padding:10px; color:white;">{$navbit['name']}</a> {$sep}]]></template>
+		<template name="nav_bit_active" version="1838"><![CDATA[<span>{$navbit['name']}</span>]]></template>
 		<template name="nav_dropdown" version="1814"><![CDATA[<i class="fa fa-caret-down pagination_breadcrumb_link" id="breadcrumb_multipage"></i> {$multipage}]]></template>
-		<template name="nav_sep" version="1837"><![CDATA[<span>/</span>]]></template>
-		<template name="nav_sep_active" version="1837"><![CDATA[<span>/</span>]]></template>
+		<template name="nav_sep" version="1838"><![CDATA[<span>➤</span>]]></template>
+		<template name="nav_sep_active" version="1838"><![CDATA[<span style="font-size:20px; padding:0px 20px 0px 10px;">➤</span>]]></template>
 		<template name="newreply" version="1837"><![CDATA[<html>
 <head>
 <title>{$lang->post_reply_to}</title>
@@ -11336,6 +11429,17 @@ if(use_xmlhttprequest == "1")
 
 </div>
 <br />]]></template>
+		<template name="portal_stats" version="1400"><![CDATA[<div class="tborder">
+<div class="thead">{$lang->board_stats}</div>
+<div class="trow1">
+<ul class="list_style">
+<li>{$lang->stats_posts_threads}</li>
+<li>{$lang->stats_numusers}</li>
+<li>{$lang->stats_newestuser}</li>
+<li>{$lang->stats_mostonline}</li>
+</ul>
+</div>
+</div>]]></template>
 		<template name="portal_welcome" version="120"><![CDATA[<div class="tborder">
 <div class="col-sm-12 trow1 text-center" style="padding:20px;">
 {$lang->stats_newestuser}
@@ -11378,126 +11482,6 @@ if(use_xmlhttprequest == "1")
 </div>
 <br />]]></template>
 		<template name="portal_whosonline_memberbit" version="1400"><![CDATA[{$comma}<a href="{$mybb->settings['bburl']}/{$user['profilelink']}">{$user['username']}</a>{$invisiblemark}]]></template>
-		<template name="post_attachments" version="1827"><![CDATA[<br />
-<div class="tborder">
-
-	<div class="thead">{$lang->attachments}</div>
-	<div class="trow1">{$lang->attach_quota} {$lang->attach_usage} {$link_viewattachments}</div>
-	{$newattach}{$attachments}
-</div>]]></template>
-		<template name="post_attachments_attachment" version="1827"><![CDATA[<div id="attachment_{$attachment['aid']}" class="trow1 rowbit">
-  
-<div data-width="40%">
-
-<span class="vmiddle inline-block">{$attachment['icon']}</span> 
-<span class="inline-block vmiddle"><span class="attachment_filename">{$attachment['filename']}</span> ({$attachment['size']})</span>
-  
-</div>
-
-<div class="align_right" data-width="60%">
-{$attach_mod_options} {$attach_rem_options} {$postinsert}</div>
-
-</div>]]></template>
-		<template name="post_attachments_attachment_unapproved" version="1823"><![CDATA[<div class="trow1 trow_shaded rowbit" id="attachment_{$attachment['aid']}">
-  
-<div data-width="40%">
-
-<span class="vmiddle inline-block">{$attachment['icon']}</span> 
-<span class="inline-block vmiddle">{$attachment['filename']} <span class="smalltext inline-block vmiddle">{$attachment['size']}</span></span>
-  
-</div>
-
-<div class="align_right" data-width="60%">
-{$attach_mod_options} {$attach_rem_options} {$postinsert}</div>
-
-</div>]]></template>
-		<template name="post_attachments_new" version="1827"><![CDATA[<div class="trow1 rowbit">
-	<div data-width="40%">
-		{$lang->new_attachment} <input type="file" name="attachments[]" size="30" class="fileupload" multiple="multiple" />
-	</div>
-	<div data-width="60%" class="align_right">{$attach_update_options} {$attach_add_options}</div>
-</div>
-<div style="display: none;">
-	<div class="trow1">
-		<div id="upload_bar" style="background: #0066A2; height: 5px; width: 0%;"></div>
-		<div id="dropzone" style="padding: 50px 0; margin: 5px 10px 10px; cursor: pointer; border: 2px dashed #CCC; text-align: center;">
-			<div style="pointer-events: none;"></div>
-		</div>
-	</div>
-</div>]]></template>
-		<template name="post_captcha" version="1821"><![CDATA[<div id="captcha_trow" class="trow1 rowbit">
- 
-
-
-<div class="formbit_label align_right" data-width="20%">{$lang->image_verification}</div>
-  
-<div class="formbit_field" data-width="80%">
-  
-  <script>
-<!--
-	lang.captcha_fetch_failure = "{$lang->captcha_fetch_failure}";
-// -->
-</script>
-<script src="{$mybb->asset_url}/jscripts/captcha.js?ver=1821"></script>
-
-<div style="padding-bottom:6px;"><img src="captcha.php?imagehash={$imagehash}" alt="{$lang->image_verification}" title="{$lang->image_verification}" id="captcha_img" />
- </div>
-
-<input type="text" class="textbox" name="imagestring" value="" id="imagestring" /><input type="hidden" name="imagehash" value="{$imagehash}" id="imagehash" /> 
-<script>
-		<!--
-			if(use_xmlhttprequest == "1")
-			{
-				document.write('<input type="button" class="button" name="refresh" value="{$lang->refresh}" onclick="return captcha.refresh();" \/>');
-			}
-		// -->
-</script>
-
-  
-<div>{$lang->verification_note}</div>
-
-  </div></div>]]></template>
-		<template name="post_captcha_hidden" version="1702"><![CDATA[
-
-
-<div class="trow1 rowbit" stlye="display:none;">
-<div class="formbit_label align_right" data-width="20%"></div>
-  
-<div class="formbit_field" data-width="80%"><input type="hidden" name="{$hash}" value="{$field['hash']}" />
-<input type="hidden" name="{$string}" value="{$field['string']}" /></div>
-</div>]]></template>
-		<template name="post_captcha_nocaptcha" version="1804"><![CDATA[<div class="trow1 rowbit">
-
-<div class="formbit_label align_right" data-width="20%">{$lang->human_verification}</div>
-  
-<div class="formbit_field" data-width="80%">
-	<script type="text/javascript" src="{$server}"></script><div class="g-recaptcha" data-sitekey="{$public_key}"></div>
-	
-	<div class="smalltext">{$lang->verification_note_nocaptcha}</div>
- 
-	</div>
-	
-</div>]]></template>
-		<template name="post_prefixselect_multiple" version="1800"><![CDATA[<select name="threadprefix[]" multiple="multiple" size="5">
-<option value="any"{$any_selected}>{$lang->any_prefix}</option>
-<option value="0"{$default_selected}>{$lang->no_prefix}</option>
-{$prefixselect_prefix}
-</select>]]></template>
-		<template name="post_prefixselect_prefix" version="1800"><![CDATA[<option value="{$prefix['pid']}"{$selected}>{$prefix['prefix']}</option>]]></template>
-		<template name="post_prefixselect_single" version="1800"><![CDATA[<select name="threadprefix">
-<option value="0"{$default_selected}>{$lang->no_prefix}</option>
-{$prefixselect_prefix}
-</select>]]></template>
-		<template name="post_savedraftbutton" version="120"><![CDATA[&nbsp;<input type="submit" class="button" name="savedraft" value="{$lang->save_draft}" />]]></template>
-		<template name="post_subscription_method" version="1822"><![CDATA[<div class="{$bgcolor} rowbit">
-<div class="formbit_label col-sm-2 strong"><span title="{$lang->thread_subscription_method_desc}">Subscription method:</span></div>
-  
-<div class="formbit_field col-sm-10">
-	<label><input type="radio" name="postoptions[subscriptionmethod]" {$subscribe}value="" /> {$lang->no_subscribe}</label><br />
-	<label><input type="radio" name="postoptions[subscriptionmethod]" {$nonesubscribe}value="none" /> {$lang->no_subscribe_notification}</label><br />
-	<label><input type="radio" name="postoptions[subscriptionmethod]" {$emailsubscribe}value="email" /> {$lang->instant_email_subscribe}</label><br />
-	<label><input type="radio" name="postoptions[subscriptionmethod]" {$pmsubscribe}value="pm" /> {$lang->instant_pm_subscribe}</label></div>
-</div>]]></template>
 		<template name="postbit" version="1819"><![CDATA[{$ignore_bit}{$deleted_bit}
 <a id="pid{$post['pid']}"></a>
 <div class="post {$unapproved_shade}" style="{$post_visibility}" id="post_{$post['pid']}">
@@ -11666,6 +11650,126 @@ if(use_xmlhttprequest == "1")
 <div class="formbit_field col-sm-10">
 {$iconlist}  
 </div>
+</div>]]></template>
+		<template name="post_attachments" version="1827"><![CDATA[<br />
+<div class="tborder">
+
+	<div class="thead">{$lang->attachments}</div>
+	<div class="trow1">{$lang->attach_quota} {$lang->attach_usage} {$link_viewattachments}</div>
+	{$newattach}{$attachments}
+</div>]]></template>
+		<template name="post_attachments_attachment" version="1827"><![CDATA[<div id="attachment_{$attachment['aid']}" class="trow1 rowbit">
+  
+<div data-width="40%">
+
+<span class="vmiddle inline-block">{$attachment['icon']}</span> 
+<span class="inline-block vmiddle"><span class="attachment_filename">{$attachment['filename']}</span> ({$attachment['size']})</span>
+  
+</div>
+
+<div class="align_right" data-width="60%">
+{$attach_mod_options} {$attach_rem_options} {$postinsert}</div>
+
+</div>]]></template>
+		<template name="post_attachments_attachment_unapproved" version="1823"><![CDATA[<div class="trow1 trow_shaded rowbit" id="attachment_{$attachment['aid']}">
+  
+<div data-width="40%">
+
+<span class="vmiddle inline-block">{$attachment['icon']}</span> 
+<span class="inline-block vmiddle">{$attachment['filename']} <span class="smalltext inline-block vmiddle">{$attachment['size']}</span></span>
+  
+</div>
+
+<div class="align_right" data-width="60%">
+{$attach_mod_options} {$attach_rem_options} {$postinsert}</div>
+
+</div>]]></template>
+		<template name="post_attachments_new" version="1827"><![CDATA[<div class="trow1 rowbit">
+	<div data-width="40%">
+		{$lang->new_attachment} <input type="file" name="attachments[]" size="30" class="fileupload" multiple="multiple" />
+	</div>
+	<div data-width="60%" class="align_right">{$attach_update_options} {$attach_add_options}</div>
+</div>
+<div style="display: none;">
+	<div class="trow1">
+		<div id="upload_bar" style="background: #0066A2; height: 5px; width: 0%;"></div>
+		<div id="dropzone" style="padding: 50px 0; margin: 5px 10px 10px; cursor: pointer; border: 2px dashed #CCC; text-align: center;">
+			<div style="pointer-events: none;"></div>
+		</div>
+	</div>
+</div>]]></template>
+		<template name="post_captcha" version="1821"><![CDATA[<div id="captcha_trow" class="trow1 rowbit">
+ 
+
+
+<div class="formbit_label align_right" data-width="20%">{$lang->image_verification}</div>
+  
+<div class="formbit_field" data-width="80%">
+  
+  <script>
+<!--
+	lang.captcha_fetch_failure = "{$lang->captcha_fetch_failure}";
+// -->
+</script>
+<script src="{$mybb->asset_url}/jscripts/captcha.js?ver=1821"></script>
+
+<div style="padding-bottom:6px;"><img src="captcha.php?imagehash={$imagehash}" alt="{$lang->image_verification}" title="{$lang->image_verification}" id="captcha_img" />
+ </div>
+
+<input type="text" class="textbox" name="imagestring" value="" id="imagestring" /><input type="hidden" name="imagehash" value="{$imagehash}" id="imagehash" /> 
+<script>
+		<!--
+			if(use_xmlhttprequest == "1")
+			{
+				document.write('<input type="button" class="button" name="refresh" value="{$lang->refresh}" onclick="return captcha.refresh();" \/>');
+			}
+		// -->
+</script>
+
+  
+<div>{$lang->verification_note}</div>
+
+  </div></div>]]></template>
+		<template name="post_captcha_hidden" version="1702"><![CDATA[
+
+
+<div class="trow1 rowbit" stlye="display:none;">
+<div class="formbit_label align_right" data-width="20%"></div>
+  
+<div class="formbit_field" data-width="80%"><input type="hidden" name="{$hash}" value="{$field['hash']}" />
+<input type="hidden" name="{$string}" value="{$field['string']}" /></div>
+</div>]]></template>
+		<template name="post_captcha_nocaptcha" version="1804"><![CDATA[<div class="trow1 rowbit">
+
+<div class="formbit_label align_right" data-width="20%">{$lang->human_verification}</div>
+  
+<div class="formbit_field" data-width="80%">
+	<script type="text/javascript" src="{$server}"></script><div class="g-recaptcha" data-sitekey="{$public_key}"></div>
+	
+	<div class="smalltext">{$lang->verification_note_nocaptcha}</div>
+ 
+	</div>
+	
+</div>]]></template>
+		<template name="post_prefixselect_multiple" version="1800"><![CDATA[<select name="threadprefix[]" multiple="multiple" size="5">
+<option value="any"{$any_selected}>{$lang->any_prefix}</option>
+<option value="0"{$default_selected}>{$lang->no_prefix}</option>
+{$prefixselect_prefix}
+</select>]]></template>
+		<template name="post_prefixselect_prefix" version="1800"><![CDATA[<option value="{$prefix['pid']}"{$selected}>{$prefix['prefix']}</option>]]></template>
+		<template name="post_prefixselect_single" version="1800"><![CDATA[<select name="threadprefix">
+<option value="0"{$default_selected}>{$lang->no_prefix}</option>
+{$prefixselect_prefix}
+</select>]]></template>
+		<template name="post_savedraftbutton" version="120"><![CDATA[&nbsp;<input type="submit" class="button" name="savedraft" value="{$lang->save_draft}" />]]></template>
+		<template name="post_subscription_method" version="1822"><![CDATA[<div class="{$bgcolor} rowbit">
+<div class="formbit_label col-sm-2 strong"><span title="{$lang->thread_subscription_method_desc}">Subscription method:</span></div>
+  
+<div class="formbit_field col-sm-10">
+	<label><input type="radio" name="postoptions[subscriptionmethod]" {$subscribe}value="" /> {$lang->no_subscribe}</label><br />
+	<label><input type="radio" name="postoptions[subscriptionmethod]" {$nonesubscribe}value="none" /> {$lang->no_subscribe_notification}</label><br />
+	<label><input type="radio" name="postoptions[subscriptionmethod]" {$emailsubscribe}value="email" /> {$lang->instant_email_subscribe}</label><br />
+	<label><input type="radio" name="postoptions[subscriptionmethod]" {$pmsubscribe}value="pm" /> {$lang->instant_pm_subscribe}</label></div>
 </div>]]></template>
 		<template name="previewpost" version="1800"><![CDATA[<div class="tborder tfixed clear">
 
@@ -12073,12 +12177,12 @@ if(use_xmlhttprequest == "1")
 {$footer}
 </body>
 </html>]]></template>
+		<template name="private_emptyexportlink" version="1838"><![CDATA[<a href="private.php?action=empty">{$lang->empty_folders2}</a> | <a href="private.php?action=export">{$lang->export_messages2}</a>]]></template>
 		<template name="private_empty_folder" version="120"><![CDATA[
 <div class="trow1">{$foldername}</div>
 <div class="trow1">{$foldercount}</div>
 <div class="trow1"><input type="checkbox" class="checkbox" name="empty[{$fid}]" value="1" /></div>
 ]]></template>
-		<template name="private_emptyexportlink" version="1838"><![CDATA[<a href="private.php?action=empty">{$lang->empty_folders2}</a> | <a href="private.php?action=export">{$lang->export_messages2}</a>]]></template>
 		<template name="private_folders" version="1814"><![CDATA[<html>
 <head>
 <title>{$mybb->settings['bbname']} - {$lang->pm_folders}</title>
@@ -12836,6 +12940,11 @@ if(use_xmlhttprequest == "1")
 	
 </div> </div>
   </div>]]></template>
+		<template name="reputation_added" version="1805"><![CDATA[		<div class="tborder>
+<div class="thead">	{$lang->vote_added}</div>
+			 <div class="trow1">{$lang->vote_added_message}
+		</div></div>]]></template>
+		<template name="reputation_addlink" version="1800"><![CDATA[<div class="float_right"><a href="javascript:MyBB.reputation({$user['uid']});" class="button rate_user_button"><span>{$lang->rate_user}</span></a></div>]]></template>
 		<template name="reputation_add_delete" version="1800"><![CDATA[<input type="button" class="button" name="delete" value="{$lang->delete_vote}" onclick="javascript: return MyBB.submitReputation({$user['uid']}, {$mybb->input['pid']}, 1);" />]]></template>
 		<template name="reputation_add_error" version="1805"><![CDATA[<div class="modal">
 <div class="tborder">
@@ -12851,11 +12960,6 @@ if(use_xmlhttprequest == "1")
 		<template name="reputation_add_neutral" version="1800"><![CDATA[					<option value="0" class="reputation_neutral" onclick="$('#reputation').attr('class', 'reputation_neutral')"{$vote_check[0]}>{$lang->power_neutral}</option>]]></template>
 		<template name="reputation_add_positive" version="1800"><![CDATA[					<option value="{$value}" class="reputation_positive" onclick="$('#reputation').attr('class', 'reputation_positive')"{$vote_check[$value]}>{$positive_title}</option>
 {$positive_power}]]></template>
-		<template name="reputation_added" version="1805"><![CDATA[		<div class="tborder>
-<div class="thead">	{$lang->vote_added}</div>
-			 <div class="trow1">{$lang->vote_added_message}
-		</div></div>]]></template>
-		<template name="reputation_addlink" version="1800"><![CDATA[<div class="float_right"><a href="javascript:MyBB.reputation({$user['uid']});" class="button rate_user_button"><span>{$lang->rate_user}</span></a></div>]]></template>
 		<template name="reputation_deleted" version="1805"><![CDATA[<div class="tborder">
 <div class="thead">{$lang->vote_deleted}</div>
 <div class="trow1">{$lang->vote_deleted_message}</div>
@@ -15136,11 +15240,11 @@ $(document).ready(function () {
 <div class="formbit_label">{$lang->style}</div>
 <div class="formbit_field">{$stylelist}</div>
 <br/>]]></template>
-		<template name="usercp_options_time_format" version="1800"><![CDATA[<option value="{$key}"{$selected}>{$timeformat}</option>]]></template>
 		<template name="usercp_options_timezone" version="1800"><![CDATA[<select name="{$name}" id="{$name}">
 {$timezone_option}
 </select>]]></template>
 		<template name="usercp_options_timezone_option" version="1800"><![CDATA[<option value="{$timezone}"{$selected_add}>{$label}</option>]]></template>
+		<template name="usercp_options_time_format" version="1800"><![CDATA[<option value="{$key}"{$selected}>{$timeformat}</option>]]></template>
 		<template name="usercp_options_tppselect" version="1819"><![CDATA[<div class="formbit_label">{$lang->tpp}</div>
 <div class="formbit_field"><select name="tpp"><option value="">{$lang->use_default}</option>
 {$tppoptions}
@@ -16070,6 +16174,21 @@ $(document).ready(function () {
 {$footer}
 </body>
 </html>]]></template>
+		<template name="warnings_warning" version="1805"><![CDATA[<div class="trow1 rowbit">	
+				
+<div class="warningbit_warning" data-width="20%">{$warning_type} {$points}{$post_link}</div>
+			
+			
+<div class="warningbit_issuedby" data-width="20%" data-lang="{$lang->issued_by}">{$issuedby}</div>
+			
+<div class="warningbit_dateissued" data-width="20%" data-lang="{$lang->date_issued}">{$date_issued}</div>
+			
+<div class="warningbit_expires" data-width="20%" data-lang="{$lang->expiry_date}">{$expires}</div>
+			
+<div class="warningbit_details" data-width="20%" data-lang="{$lang->details}"><a href="warnings.php?action=view&amp;wid={$warning['wid']}">{$lang->view}</a></div>
+			
+			
+</div>]]></template>
 		<template name="warnings_warn_custom" version="1702"><![CDATA[<li><label><input type="radio" name="type" value="custom" {$type_checked['custom']} class="types_check" onclick="checkType();" /> {$lang->custom}</label></li>
 <li id="type_custom" class="types">
 
@@ -16167,21 +16286,6 @@ $(document).ready(function () {
 						{$result}
 </li>]]></template>
 		<template name="warnings_warn_type_result" version="1800"><![CDATA[<div class="smalltext">{$lang->result}<br />{$new_level['friendly_action']}</div>]]></template>
-		<template name="warnings_warning" version="1805"><![CDATA[<div class="trow1 rowbit">	
-				
-<div class="warningbit_warning" data-width="20%">{$warning_type} {$points}{$post_link}</div>
-			
-			
-<div class="warningbit_issuedby" data-width="20%" data-lang="{$lang->issued_by}">{$issuedby}</div>
-			
-<div class="warningbit_dateissued" data-width="20%" data-lang="{$lang->date_issued}">{$date_issued}</div>
-			
-<div class="warningbit_expires" data-width="20%" data-lang="{$lang->expiry_date}">{$expires}</div>
-			
-<div class="warningbit_details" data-width="20%" data-lang="{$lang->details}"><a href="warnings.php?action=view&amp;wid={$warning['wid']}">{$lang->view}</a></div>
-			
-			
-</div>]]></template>
 		<template name="xmlhttp_buddyselect" version="1805"><![CDATA[{$buddy_select}
 
 <div class="modal">

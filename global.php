@@ -1,6 +1,7 @@
 <?php
 
 
+
 $working_dir = dirname(__FILE__);
 if(!$working_dir)
 {
@@ -580,7 +581,6 @@ else
 		eval('$loginform = "'.$templates->get('header_welcomeblock_guest_login_modal').'";');
 	}
 
-	eval('$welcomeblock = "'.$templates->get('header_welcomeblock_guest').'";');
 }
 
 // Display menu links and quick search if user has permission
@@ -951,6 +951,17 @@ foreach (array('modal', 'modal_button') as $template) {
 eval('$headerinclude = "'.$templates->get('headerinclude').'";');
 eval('$gobutton = "'.$templates->get('gobutton').'";');
 eval('$htmldoctype = "'.$templates->get('htmldoctype', 1, 0).'";');
+
+// Check if user is logged in and modify header template accordingly
+if($mybb->user['uid'] != 0) {
+    // User is logged in, show logout button and hide login/register
+    eval('$logged_in_out = "'.$templates->get('logincomplate').'";');
+} else {
+    // User is not logged in, show login and register buttons, hide logout
+    eval('$logged_in_out = "'.$templates->get('guestusers').'";');
+}
+
+// Then use the variable in your template
 eval('$header = "'.$templates->get('header').'";');
 
 $copy_year = my_date('Y', TIME_NOW);
@@ -1269,3 +1280,81 @@ if(!empty($mybb->cookies['collapsed']))
 $plugins->run_hooks('global_end');
 
 $globaltime = $maintimer->getTime();
+/**
+ * Create a global function that can be used across all websites
+ * This function saves forum statistics to the session for use across the site
+ * 
+ * @param array $stats Statistics from database
+ * @param int $onlinecount Current online users count
+ * @return array Array of formatted statistics
+ */
+function save_forum_stats_to_session($stats = null, $onlinecount = null)
+{
+	global $db, $cache, $lang, $mybb;
+	
+	// If stats not provided, fetch from database
+	if(empty($stats))
+	{
+		// Try to get from cache first
+		$stats = $cache->read('stats');
+		
+		// If still empty, query directly from database
+		if(empty($stats))
+		{
+			$query = $db->simple_select("users", "COUNT(uid) AS numusers");
+			$stats['numusers'] = $db->fetch_field($query, "numusers");
+			
+			$query = $db->simple_select("posts", "COUNT(pid) AS numposts");
+			$stats['numposts'] = $db->fetch_field($query, "numposts");
+			
+			$query = $db->simple_select("threads", "COUNT(tid) AS numthreads");
+			$stats['numthreads'] = $db->fetch_field($query, "numthreads");
+			
+			$query = $db->simple_select("users", "uid, username", "", array('order_by' => 'regdate', 'order_dir' => 'DESC', 'limit' => 1));
+			$lastuser = $db->fetch_array($query);
+			$stats['lastuid'] = $lastuser['uid'];
+			$stats['lastusername'] = $lastuser['username'];
+		}
+	}
+	
+	// Format newest member information
+	if(!$stats['lastusername'])
+	{
+		$newestmember = $lang->nobody;
+	}
+	else
+	{
+		$newestmember = build_profile_link($stats['lastusername'], $stats['lastuid']);
+	}
+	
+	// Handle most users online record
+	$mostonline = $cache->read('mostonline');
+	if($onlinecount !== null && $onlinecount > $mostonline['numusers'])
+	{
+		$time = TIME_NOW;
+		$mostonline['numusers'] = $onlinecount;
+		$mostonline['time'] = $time;
+		$cache->update('mostonline', $mostonline);
+	}
+	
+	$recordcount = $mostonline['numusers'];
+	$recorddate = my_date($mybb->settings['dateformat'], $mostonline['time']);
+	$recordtime = my_date($mybb->settings['timeformat'], $mostonline['time']);
+	
+	// Save all stats values into session
+	$_SESSION['forum_stats'] = array(
+		'numposts' => $stats['numposts'],
+		'numthreads' => $stats['numthreads'],
+		'numusers' => $stats['numusers'],
+		'lastusername' => $stats['lastusername'],
+		'lastuid' => $stats['lastuid'],
+		'newestmember' => $newestmember,
+		'recordcount' => $recordcount,
+		'recorddate' => $recorddate,
+		'recordtime' => $recordtime
+	);
+	
+	return $_SESSION['forum_stats'];
+	
+}
+

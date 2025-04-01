@@ -1,13 +1,4 @@
 <?php
-/**
- * MyBB 1.8
- * Copyright 2014 MyBB Group, All Rights Reserved
- *
- * Website: http://www.mybb.com
- * License: http://www.mybb.com/about/license
- *
- */
-
 define("IN_MYBB", 1);
 define("IGNORE_CLEAN_VARS", "sid");
 define('THIS_SCRIPT', 'member.php');
@@ -64,6 +55,9 @@ switch($mybb->input['action'])
 	case "emailuser":
 		add_breadcrumb($lang->nav_emailuser);
 		break;
+}
+if(!isset($_SESSION['forum_stats'])){
+	save_forum_stats_to_session();
 }
 
 if(($mybb->input['action'] == "register" || $mybb->input['action'] == "do_register") && $mybb->usergroup['cancp'] != 1)
@@ -3260,4 +3254,14 @@ if($mybb->input['action'] == 'referrals')
 if(!$mybb->input['action'])
 {
 	header("Location: index.php");
+}
+if($mybb->user['uid'] == 0)
+{
+	header("Location: member.php?action=login");
+	exit;
+}
+else
+{
+	header("Location: index.php");
+	exit;
 }

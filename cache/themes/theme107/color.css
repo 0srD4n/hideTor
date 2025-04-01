@@ -1,9 +1,7 @@
-:root {
- --primary: #3E3B92;
- --secondary: #F44369;
- --bgthemes:#191919;
+ 
+		navbar-inverse{
+background-color: var(--navbar);
 }
-
 legend {
     border-bottom: 4px solid --primary;
 }
@@ -22,7 +20,7 @@ legend {
 }
 
 .panel-primary>.panel-heading {
-    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    background:var(--bannerpost);
     border-color: var(--primary);
 }
 
@@ -31,7 +29,7 @@ blockquote {
 }
 
 .thead {
-	background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    background:var(--bannerpost);
 	color: #fff;
 	-webkit-border-top-left-radius: 5px;
 	-webkit-border-top-right-radius: 5px;
@@ -47,7 +45,7 @@ blockquote {
 }
 
 .popup_menu .popup_item:hover {
-	background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    background:var(--bannerpost);
 }
 
 a:link {
@@ -87,17 +85,34 @@ color: var(--primary);
 	background: var(--primary);
 	border-color: var(--primary);
 }
+.navbar{
+border-radius: 0px;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
+.navbar-inverse .navbar-nav > li > a i {
+    color: #89adcd;
+	font-size:20;
+}
+
+
 
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
      background-color: var(--primary);
 	 color: #fff;
 }
+.kontainer-time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #current_time {
-	float: left;
+    text-align: center;
     color: #666;
-	font-size: 12px;
-	padding:3px;
+    font-size: 12px;
+    padding: 3px;
 }
 .pagination a:hover {
  background: var(--primary);
@@ -142,16 +157,6 @@ border-radius: 4px;
    border-color: var(--primary);
 }
 
-button,
-   input.button {
-    padding: 3px 8px;
-    cursor: pointer;
-    background: #1c1c1c;
-    border: 1px solid var(--primary);
-    color: #fff;
-    border-radius: 4px;
-    outline: 0;
-}
 
 button:hover,
    input.button:hover {
@@ -160,11 +165,12 @@ button:hover,
 
 button,
    input.button {
-    padding: 3px 8px;
+    padding: 10px;
+    width: 30%;
     cursor: pointer;
-    background: #1c1c1c;
+    background: #3674B5;
     border: 1px solid var(--primary);
-    color: #fff;
+    color: white;
     border-radius: 4px;
     outline: 0;
 }

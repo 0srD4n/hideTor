@@ -367,8 +367,21 @@ if($mybb->settings['showindexstats'] != 0)
 
 	// Then format that language string.
 	$lang->stats_mostonline = $lang->sprintf($lang->stats_mostonline, my_number_format($recordcount), $recorddate, $recordtime);
+	
+	// Save all stats values into session
+	$_SESSION['forum_stats'] = array(
+		'numposts' => $stats['numposts'],
+		'numthreads' => $stats['numthreads'],
+		'numusers' => $stats['numusers'],
+		'lastusername' => $stats['lastusername'],
+		'lastuid' => $stats['lastuid'],
+		'recordcount' => $recordcount,
+		'recorddate' => $recorddate,
+		'recordtime' => $recordtime
+	);
 
 	eval('$forumstats = "'.$templates->get('index_stats').'";');
+	
 }
 
 // Show the board statistics table only if one or more index statistics are enabled.

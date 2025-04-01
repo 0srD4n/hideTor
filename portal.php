@@ -208,6 +208,7 @@ if($mybb->settings['portal_showstats'] != 0)
 		$newestmember = build_profile_link($stats['lastusername'], $stats['lastuid']);
 	}
 	eval("\$stats = \"".$templates->get("portal_stats")."\";");
+
 }
 
 $search = '';

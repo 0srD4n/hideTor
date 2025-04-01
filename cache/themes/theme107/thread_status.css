@@ -5,11 +5,18 @@
 	background-image: url(../../../images/folders_sprite.png);
 	background-repeat: no-repeat;
 }
-
+.argument{
+background: var(--primary);
+color:white;
+padding: 5px;
+border-radius: 5px;
+}
 .thread_status.dot_folder {
 	background-position: 0 0;
 }
-
+logoutnav{
+font-size:10px;
+}
 .thread_status.dot_hotfolder {
 	background-position: 0 -20px;
 }
@@ -73,4 +80,3 @@
 .thread_status.newclosefolder {
 	background-position: 0 -320px;
 }
-		

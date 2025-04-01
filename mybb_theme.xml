@@ -10,7 +10,7 @@
 	</properties>
 	<stylesheets>
 		<stylesheet name="global.css" version="1827" disporder="1"><![CDATA[body {
-	background: #1c1c1c;
+	background: #fff;
 	color: #333;
 	text-align: center;
 	line-height: 1.4;
@@ -293,10 +293,9 @@ a:active {
 }
 
 #footer .lower #current_time {
-	float: left;
-	color: #F1EFEC;
+	float: right;
+	color: #888;
 }
-
 
 #debug {
 	float: right;
@@ -527,9 +526,7 @@ tr.trow_selected td {
 
 .navigation {
 	color: #333;
-	text-align:center;
-	font-size: 30px;
-
+	font-size: 12px;
 }
 
 .navigation a:link {
@@ -3686,6 +3683,16 @@ var announcement_quickdelete_confirm = "{$lang->announcement_quickdelete_confirm
 	<div class="lower">
 		<div class="wrapper">
 			<span id="current_time">{$lang->welcome_current_time}</span>
+			<span id="copyright">
+				<!-- MyBB is free software developed and maintained by a volunteer community.
+					It would be much appreciated by the MyBB Group if you left the full copyright and "powered by" notice intact,
+					to show your support for MyBB.  If you choose to remove or modify the copyright below,
+					you may be refused support on the MyBB Community Forums.
+
+					This is free software, support us and we'll support you. -->
+				{$lang->powered_by} <a href="https://mybb.com" target="_blank" rel="noopener">MyBB{$mybbversion}</a>, &copy; 2002-{$copy_year} <a href="https://mybb.com" target="_blank" rel="noopener">MyBB Group</a>.
+				<!-- End powered by -->
+			</span>
 		</div>
 	</div>
 </div>
@@ -4217,6 +4224,7 @@ $(".forumjump").on('change', function() {
 		<div id="header">
 			<div id="logo">
 				<div class="wrapper">
+					<a href="{$mybb->settings['bburl']}/index.php"><img src="{$theme['logo']}" alt="{$mybb->settings['bbname']}" title="{$mybb->settings['bbname']}" /></a>
 					<ul class="menu top_links">
 						{$menu_portal}
 						{$menu_search}
@@ -4229,6 +4237,7 @@ $(".forumjump").on('change', function() {
 			<div id="panel">
 				<div class="upper">
 					<div class="wrapper">
+						{$quicksearch}
 						{$welcomeblock}
 					<!-- </div> in header_welcomeblock_member and header_welcomeblock_guest -->
 				<!-- </div> in header_welcomeblock_member and header_welcomeblock_guest -->
@@ -4258,9 +4267,7 @@ $(".forumjump").on('change', function() {
 						</fieldset>
 						</form>]]></template>
 		<template name="header_welcomeblock_guest" version="1816"><![CDATA[						<!-- Continuation of div(class="upper") as opened in the header template -->
-						<span class="welcome">{$lang->welcome_guest}
-						 <a href="{$mybb->settings['bburl']}/member.php?action=login" class="login">{$lang->welcome_login}</a>
-						<a href="{$mybb->settings['bburl']}/member.php?action=register" class="register">{$lang->welcome_register}</a></span>
+						<span class="welcome">{$lang->welcome_guest} <a href="{$mybb->settings['bburl']}/member.php?action=login" onclick="$('#quick_login').modal({ fadeDuration: 250, keepelement: true, zIndex: (typeof modal_zindex !== 'undefined' ? modal_zindex : 9999) }); return false;" class="login">{$lang->welcome_login}</a> <a href="{$mybb->settings['bburl']}/member.php?action=register" class="register">{$lang->welcome_register}</a></span>
 					</div>
 				</div>
 				<div class="modal" id="quick_login" style="display: none;">
